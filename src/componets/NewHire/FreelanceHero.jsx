@@ -1,7 +1,9 @@
 "use client";
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const FreelancerHero = () => {
+  const router = useRouter();
   const freelancers = [
     {
       id: 1,
@@ -148,7 +150,7 @@ const FreelancerHero = () => {
 
             {/* Enhanced CTA Buttons */}
             <div className="flex items-center space-x-4 pt-6">
-              <button className="group px-10 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-emerald-700 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-blue-500/20">
+              <button onClick={()=> router.push('/enquiry')} className="group px-10 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-emerald-700 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-blue-500/20">
                 <span className="flex items-center space-x-2">
                   <span>Find Elite Talent</span>
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">

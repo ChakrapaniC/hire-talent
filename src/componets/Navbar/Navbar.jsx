@@ -1,9 +1,11 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { MessageCircle } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,7 @@ const Navbar = () => {
             </div>
 
             {/* Enquiry Button */}
-            <button className="group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
+            <button onClick={()=> router.push('/enquiry')} className="group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
               <span className="relative z-10 flex items-center space-x-2">
                 <MessageCircle className="w-4 h-4" />
                 <span>Enquiry</span>
