@@ -134,10 +134,10 @@ const ContactDetails = ({ formData, updateFormData }) => {
   }, []);
 
   return (
-    <div className="space-y-6">
-      <div className="grid md:grid-cols-2 gap-4">
+    <div className="space-y-6 mt-7">
+      <div className="grid md:grid-cols-1 gap-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Email <span className="text-red-500">*</span>
           </label>
           <input
@@ -155,7 +155,7 @@ const ContactDetails = ({ formData, updateFormData }) => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Company name <span className="text-red-500">*</span>
           </label>
           <input
@@ -168,7 +168,7 @@ const ContactDetails = ({ formData, updateFormData }) => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Contact name <span className="text-red-500">*</span>
           </label>
           <input
@@ -181,7 +181,7 @@ const ContactDetails = ({ formData, updateFormData }) => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Phone Number <span className="text-red-500">*</span>
           </label>
           <input

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { MessageCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-const Navbar = () => {
+const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
 
@@ -16,6 +16,21 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const getProgressPercentage = () => {
+    if (isSubmitted) {
+      return 100;
+    }
+    switch (currentStep) {
+      case 0:
+        return 30;
+      case 1:
+        return 60;
+      case 2:
+        return 90;
+      default:
+        return 0;
+    }
+  };
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out mb-8 ${
@@ -27,7 +42,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16 lg:h-20">
             
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center" onClick={() => router.push('/')}>
               <img 
                 src="https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-flexpert/image+(1).jpeg" 
                 alt="Logo" 
@@ -47,6 +62,18 @@ const Navbar = () => {
         </div>
       </nav>
 
+      {showProgressBar && (
+        <div className="fixed top-16 lg:top-20 left-0 right-0 z-40 bg-white/90 backdrop-blur-sm border-b border-gray-100">
+          <div className="w-full">
+            <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-blue-600 to-emerald-600 transition-all duration-500 ease-out"
+                style={{ width: `${getProgressPercentage()}%` }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

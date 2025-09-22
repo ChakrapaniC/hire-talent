@@ -21,7 +21,7 @@ const TimeCommitment = ({ formData, updateFormData }) => {
   ];
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 mt-8">
       {commitments.map((commitment) => {
         const isActive = formData.timeCommitment === commitment.id;
 
@@ -29,17 +29,17 @@ const TimeCommitment = ({ formData, updateFormData }) => {
           <button
             key={commitment.id}
             onClick={() => updateFormData("timeCommitment", commitment.id)}
-            className={`w-full p-5 rounded-xl border-2 text-left transition-all group
+            className={`w-full px-5 py-5 lg:px-8 rounded-xl border-1 text-left transition-all group
               ${
                 isActive
                   ? "border-[#3985B6] shadow-lg scale-105 bg-gradient-to-r from-[#3985b6] to-sky-400"
-                  : "border-[#3985B6] bg-white hover:border-[#3985B6] hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-[#3985b6] hover:to-sky-400"
+                  : "border-gray-200 shadow-sm bg-white hover:border-[#3985B6] hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-[#3985b6] hover:to-sky-400"
               }
             `}
           >
             <div className="flex items-center justify-between">
               <h3
-                className={`text-base font-medium transition-colors
+                className={`text-sm font- transition-colors
                   ${isActive ? "text-white" : "text-gray-500 group-hover:text-white"}
                 `}
               >
