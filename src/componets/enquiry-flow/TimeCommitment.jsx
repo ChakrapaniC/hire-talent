@@ -1,48 +1,59 @@
-import {ChevronRight} from 'lucide-react';
+import { ChevronRight } from "lucide-react";
+
 const TimeCommitment = ({ formData, updateFormData }) => {
   const commitments = [
     {
-      id: 'full-time',
+      id: "full-time",
       title: "Full time (40 or more hrs/week)",
-      color: "from-blue-500 to-blue-600"
     },
     {
-      id: 'part-time',
+      id: "part-time",
       title: "Part time (Less than 40 hrs/week)",
-      color: "from-emerald-500 to-emerald-600"
     },
     {
-      id: 'hourly',
+      id: "hourly",
       title: "Hourly",
-      color: "from-purple-500 to-purple-600"
     },
     {
-      id: 'decide-later',
+      id: "decide-later",
       title: "I'll decide later",
-      color: "from-gray-500 to-gray-600"
-    }
+    },
   ];
 
   return (
     <div className="space-y-3">
-      {commitments.map((commitment) => (
-        <button
-          key={commitment.id}
-          onClick={() => updateFormData('timeCommitment', commitment.id)}
-          className={`w-full p-6 rounded-xl border-2 text-left transition-all hover:shadow-lg ${
-            formData.timeCommitment === commitment.id
-              ? 'border-blue-500 bg-blue-50 shadow-xl scale-105'
-              : 'border-gray-200 hover:border-gray-300 bg-gray-50'
-          }`}
-        >
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">
-              {commitment.title}
-            </h3>
-            <ChevronRight className="w-5 h-5 text-gray-400" />
-          </div>
-        </button>
-      ))}
+      {commitments.map((commitment) => {
+        const isActive = formData.timeCommitment === commitment.id;
+
+        return (
+          <button
+            key={commitment.id}
+            onClick={() => updateFormData("timeCommitment", commitment.id)}
+            className={`w-full p-5 rounded-xl border-2 text-left transition-all group
+              ${
+                isActive
+                  ? "border-[#3985B6] shadow-lg scale-105 bg-gradient-to-r from-[#3985b6] to-sky-400"
+                  : "border-[#3985B6] bg-white hover:border-[#3985B6] hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-[#3985b6] hover:to-sky-400"
+              }
+            `}
+          >
+            <div className="flex items-center justify-between">
+              <h3
+                className={`text-base font-medium transition-colors
+                  ${isActive ? "text-white" : "text-gray-500 group-hover:text-white"}
+                `}
+              >
+                {commitment.title}
+              </h3>
+              <ChevronRight
+                className={`w-5 h-5 transition-colors
+                  ${isActive ? "text-white" : "text-gray-400 group-hover:text-white"}
+                `}
+              />
+            </div>
+          </button>
+        );
+      })}
     </div>
   );
 };
