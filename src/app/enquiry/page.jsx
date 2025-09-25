@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef, Suspense } from 'react';
+import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import { ArrowLeft, CheckCircle, ChevronRight } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import ServiceSelection from '@/componets/enquiry-flow/ServiceSelection';
@@ -39,14 +39,14 @@ const EnquiryFlow = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleServiceParamChange = (serviceParam) => {
+  const handleServiceParamChange = useCallback((serviceParam) => {
     setFormData(prev => ({
       ...prev,
       serviceType: serviceParam
     }));
     
     setCurrentStep(1);
-  };
+  }, []);
 
   const updateFormData = (field, value) => {
     const prevValue = formData[field];
