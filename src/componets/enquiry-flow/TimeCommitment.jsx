@@ -29,18 +29,18 @@ const TimeCommitment = ({ formData, updateFormData }) => {
           <button
             key={commitment.id}
             onClick={() => updateFormData("timeCommitment", commitment.id)}
-            className={`w-full px-5 py-5 lg:px-8 rounded-xl border-1 text-left transition-all group
+            className={`w-full px-5 py-5 lg:px-8 rounded-xl border-1 text-left transition-all group cursor-pointer
               ${
                 isActive
-                  ? "border-[#3985B6] shadow-lg scale-105 bg-gradient-to-r from-[#3985b6] to-sky-400"
-                  : "border-gray-200 shadow-sm bg-white hover:border-[#3985B6] hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-[#3985b6] hover:to-sky-400"
+                  ? "border-purple-600 shadow-lg scale-105 bg-gradient-to-r from-purple-600 to-violet-600"
+                  : "border-gray-200 shadow-sm bg-white hover:border-purple-600 hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-purple-600 hover:to-violet-600"
               }
             `}
           >
             <div className="flex items-center justify-between">
               <h3
                 className={`text-sm font- transition-colors
-                  ${isActive ? "text-white" : "text-gray-500 group-hover:text-white"}
+                  ${isActive ? "text-white" : "text-gray-800 group-hover:text-white"}
                 `}
               >
                 {commitment.title}

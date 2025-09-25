@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, CheckCircle, ChevronRight } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import ServiceSelection from '@/componets/enquiry-flow/ServiceSelection';
 import TimeCommitment from '@/componets/enquiry-flow/TimeCommitment';
 import ContactDetails from '@/componets/enquiry-flow/ContactDetails';
@@ -9,6 +9,7 @@ import Navbar from '@/componets/Navbar/Navbar';
 
 const EnquiryFlow = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [currentStep, setCurrentStep] = useState(0);
   const prevFormDataRef = useRef({
     serviceType: '',
@@ -26,11 +27,40 @@ const EnquiryFlow = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Handle URL parameters for pre-selected service type
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    
+    if (serviceParam) {
+      setFormData(prev => ({
+        ...prev,
+        serviceType: serviceParam
+      }));
+      
+      // If service parameter exists, start at step 1 (Time Commitment)
+      setCurrentStep(1);
+    }
+  }, [searchParams]);
+
   const updateFormData = (field, value) => {
+    const prevValue = formData[field];
     setFormData(prev => ({
       ...prev,
       [field]: value
     }));
+    
+    // If clicking on already selected option, manually advance to next step
+    if (prevValue === value && value !== '') {
+      if (field === 'serviceType' && currentStep === 0) {
+        setTimeout(() => {
+          setCurrentStep(1);
+        }, 500);
+      } else if (field === 'timeCommitment' && currentStep === 1) {
+        setTimeout(() => {
+          setCurrentStep(2);
+        }, 500);
+      }
+    }
   };
 
   useEffect(() => {
@@ -146,7 +176,7 @@ const EnquiryFlow = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-emerald-50/20 pt-20">
+    <div className="min-h-screen bg-purple-25 pt-20">
       <Navbar currentStep={currentStep} showProgressBar={true} isSubmitted={isSubmitted} />
       <div className="max-w-[54%] mx-auto px-1 py-4">
         {/* Back to Home Button */}
@@ -163,9 +193,9 @@ const EnquiryFlow = () => {
         <div className="px-1 py-1 md:px-7 md:py-4">
           <div className="mb-5">
             <div className='flex gap-1'>
-              {currentStep > 0 ? (<button
+              {currentStep > 0 ? (              <button
                 onClick={handleBack}
-                className="mr-3 w-9 h-9 rounded-full bg-white border border-gray-200 hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center shadow-sm"
+                className="mr-3 w-9 h-9 rounded-full bg-white border border-gray-200 hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center shadow-sm cursor-pointer"
               >
                 <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -188,8 +218,8 @@ const EnquiryFlow = () => {
               <button
                 onClick={handleSubmit}
                 disabled={!getStepValidation(currentStep, formData)}
-                className={`flex items-center justify-center w-full space-x-2 px-8 py-2 rounded-xl font-semibold transition-all ${getStepValidation(currentStep, formData)
-                    ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white hover:shadow-lg hover:shadow-blue-500/25 transform hover:scale-105'
+                className={`flex items-center justify-center w-full space-x-2 px-8 py-2 rounded-xl font-semibold transition-all cursor-pointer ${getStepValidation(currentStep, formData)
+                    ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white hover:shadow-lg hover:shadow-purple-500/25 transform hover:scale-105'
                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   }`}
               >

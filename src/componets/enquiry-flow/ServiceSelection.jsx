@@ -43,11 +43,11 @@ const ServiceSelection = ({ formData, updateFormData }) => {
           <button
             key={service.id}
             onClick={() => updateFormData("serviceType", service.id)}
-            className={`w-full lg:px-8 px-4 py-4 rounded-xl border text-left transition-all group
+            className={`w-full lg:px-8 px-4 py-4 rounded-xl border text-left transition-all group cursor-pointer
               ${
                 isActive
-                  ? "border-[#3985B6] shadow-lg scale-105 bg-gradient-to-r from-[#3985b6] to-sky-400"
-                  : "border-gray-300 bg-white hover:bg-gradient-to-r hover:from-[#3985b6] hover:to-sky-300 hover:scale-105 hover:shadow-lg"
+                  ? "border-purple-600 shadow-lg scale-105 bg-gradient-to-r from-purple-600 to-violet-600"
+                  : "border-gray-300 bg-white hover:bg-gradient-to-r hover:from-purple-600 hover:to-violet-600 hover:scale-105 hover:shadow-lg"
               }
             `}
           >
@@ -58,7 +58,7 @@ const ServiceSelection = ({ formData, updateFormData }) => {
                     ${
                       isActive
                         ? "text-white"
-                        : "text-gray-600 group-hover:text-white"
+                        : "text-gray-800 group-hover:text-white"
                     }`}
                 >
                   {service.title}
