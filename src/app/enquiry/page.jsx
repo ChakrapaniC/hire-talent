@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { ArrowLeft, CheckCircle, ChevronRight } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import ServiceSelection from '@/componets/enquiry-flow/ServiceSelection';
@@ -7,9 +7,21 @@ import TimeCommitment from '@/componets/enquiry-flow/TimeCommitment';
 import ContactDetails from '@/componets/enquiry-flow/ContactDetails';
 import Navbar from '@/componets/Navbar/Navbar';
 
+const EnquiryFlowWithSearchParams = ({ onServiceParamChange }) => {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    if (serviceParam) {
+      onServiceParamChange(serviceParam);
+    }
+  }, [searchParams, onServiceParamChange]);
+
+  return null; 
+};
+
 const EnquiryFlow = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [currentStep, setCurrentStep] = useState(0);
   const prevFormDataRef = useRef({
     serviceType: '',
@@ -27,20 +39,14 @@ const EnquiryFlow = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Handle URL parameters for pre-selected service type
-  useEffect(() => {
-    const serviceParam = searchParams.get('service');
+  const handleServiceParamChange = (serviceParam) => {
+    setFormData(prev => ({
+      ...prev,
+      serviceType: serviceParam
+    }));
     
-    if (serviceParam) {
-      setFormData(prev => ({
-        ...prev,
-        serviceType: serviceParam
-      }));
-      
-      // If service parameter exists, start at step 1 (Time Commitment)
-      setCurrentStep(1);
-    }
-  }, [searchParams]);
+    setCurrentStep(1);
+  };
 
   const updateFormData = (field, value) => {
     const prevValue = formData[field];
@@ -177,6 +183,9 @@ const EnquiryFlow = () => {
 
   return (
     <div className="min-h-screen bg-purple-25 pt-20">
+      <Suspense fallback={<div>Loading...</div>}>
+        <EnquiryFlowWithSearchParams onServiceParamChange={handleServiceParamChange} />
+      </Suspense>
       <Navbar currentStep={currentStep} showProgressBar={true} isSubmitted={isSubmitted} />
       <div className="max-w-[54%] mx-auto px-1 py-4">
         {/* Back to Home Button */}
