@@ -35,7 +35,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-b from-gray-900 to-black text-white">
-      <div className="w-full max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <div className="w-full max-w-[90%] mx-auto px-6 lg:px-8 py-16">
         
         {/* Job Categories Section - Top */}
         <div className="mb-8">

@@ -53,7 +53,7 @@ const FreelancerHero = () => {
     },
     {
       id: 2,
-      name: "Marcus Johnson",
+      name: "Jatin Singh",
       designation: "Lead Full Stack Developer",
       rating: 4.9,
       projects: 89,
@@ -67,7 +67,7 @@ const FreelancerHero = () => {
       designation: "Growth Marketing Strategist",
       rating: 5.0,
       projects: 156,
-      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-talent/omid-ghobadi-s1E1pAwMqcM-unsplash.jpg",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_2.jpg",
       color: "from-purple-300 to-violet-400",
       expertise: "Digital Growth"
     },
@@ -76,8 +76,8 @@ const FreelancerHero = () => {
       name: "David Kim",
       designation: "Senior Data Scientist",
       rating: 4.8,
-      projects: 73,
-      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-talent/iqrar-ijaz-unBFfpXufgQ-unsplash.jpg",
+      projects: 173,
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_1.jpg",
       color: "from-violet-300 to-purple-400",
       expertise: "ML & Analytics"
     },
@@ -86,7 +86,7 @@ const FreelancerHero = () => {
       name: "Priya Sharma",
       designation: "Brand Content Strategist",
       rating: 4.9,
-      projects: 192,
+      projects: 112,
       image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-talent/mausam-majhi-VUGBcg9ZHBI-unsplash.jpg",
       color: "from-purple-300 to-purple-500",
       expertise: "Content Strategy"
@@ -97,7 +97,7 @@ const FreelancerHero = () => {
       designation: "Creative Design Director",
       rating: 5.0,
       projects: 104,
-      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-talent/levi-meir-clancy-idWg2hqChAQ-unsplash.jpg",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_3.jpg",
       color: "from-violet-300 to-violet-500",
       expertise: "Brand Design"
     },
@@ -107,7 +107,7 @@ const FreelancerHero = () => {
       designation: "DevOps Architect",
       rating: 4.8,
       projects: 67,
-      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_4.jpg",
       color: "from-purple-300 to-violet-500",
       expertise: "Cloud Infrastructure"
     },
