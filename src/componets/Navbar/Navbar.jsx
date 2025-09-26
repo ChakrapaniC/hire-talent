@@ -11,7 +11,6 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
   const router = useRouter();
 
-  // Dropdown data structure
   const dropdownData = {
     'Developers': [
       'Software Developer', 'Data Scientist', 'DevOps Engineer', 'QA Engineer',
@@ -66,13 +65,11 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Reset dropdown state on component mount
   useEffect(() => {
     setIsDropdownOpen(false);
     setActiveCategory('Developers');
   }, []);
 
-  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (dropdownTimeout) {
@@ -194,7 +191,10 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
               </div>
 
               {/* Contact Us */}
-              <button className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold cursor-pointer">
+              <button 
+                onClick={() => router.push('/contact')}
+                className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold cursor-pointer"
+              >
                 Contact Us
               </button>
 
@@ -268,7 +268,10 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
             </div>
 
             {/* Contact Us */}
-            <button className="block w-full text-left text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold py-2 cursor-pointer">
+            <button 
+              onClick={() => router.push('/contact')}
+              className="block w-full text-left text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold py-2 cursor-pointer"
+            >
               Contact Us
             </button>
 

@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 import { Palette, Code, PenTool, Type, Briefcase, Megaphone } from "lucide-react";
 
 const FreelancerDomains = () => {
@@ -10,7 +9,7 @@ const FreelancerDomains = () => {
             title: "Web Design",
             description: "Crafts engaging, user-friendly websites.",
             bgColor: "bg-purple-100",
-            icon: <Palette className="w-8 h-8 text-purple-600" />,
+            icon: <Palette className="w-8 h-8" />,
             services: ["Landing Page", "Portfolio", "Business Website", "E-commerce"]
         },
         {
@@ -18,7 +17,7 @@ const FreelancerDomains = () => {
             title: "Graphic Design",
             description: "Creates impactful visuals and branding.",
             bgColor: "bg-purple-100",
-            icon: <PenTool className="w-8 h-8 text-purple-600" />,
+            icon: <PenTool className="w-8 h-8" />,
             services: ["Packaging", "Brand Identity", "Illustrations", "Logo"]
         },
         {
@@ -26,7 +25,7 @@ const FreelancerDomains = () => {
             title: "Developers",
             description: "Builds functional and scalable solutions.",
             bgColor: "bg-purple-100",
-            icon: <Code className="w-8 h-8 text-purple-600" />,
+            icon: <Code className="w-8 h-8" />,
             services: ["Web Apps", "Mobile Apps", "APIs", "Database"]
         },
         {
@@ -34,7 +33,7 @@ const FreelancerDomains = () => {
             title: "Copywriting",
             description: "Delivers persuasive and creative content.",
             bgColor: "bg-purple-100",
-            icon: <Type className="w-8 h-8 text-purple-600" />,
+            icon: <Type className="w-8 h-8" />,
             services: ["Blog Posts", "Ad Copies", "Sales Pages", "Slogans"]
         },
         {
@@ -42,7 +41,7 @@ const FreelancerDomains = () => {
             title: "Business Consulting",
             description: "Helps optimize strategy and operations.",
             bgColor: "bg-purple-100",
-            icon: <Briefcase className="w-8 h-8 text-purple-600" />,
+            icon: <Briefcase className="w-8 h-8" />,
             services: ["Strategy", "Market Research", "Finance", "Operations"]
         },
         {
@@ -50,7 +49,7 @@ const FreelancerDomains = () => {
             title: "Digital Marketing",
             description: "Drives growth through online campaigns.",
             bgColor: "bg-purple-100",
-            icon: <Megaphone className="w-8 h-8 text-purple-600" />,
+            icon: <Megaphone className="w-8 h-8" />,
             services: ["SEO", "Social Media", "Email Marketing", "PPC Ads"]
         }
     ];
@@ -74,19 +73,21 @@ const FreelancerDomains = () => {
                     {domains.map((domain) => (
                         <div
                             key={domain.id}
-                            className={`${domain.bgColor} rounded-3xl py-8 px-4 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] cursor-pointer group relative overflow-hidden flex flex-col h-full`}
+                            className={`${domain.bgColor} rounded-3xl py-8 px-4 hover:shadow-lg hover:scale-[1.02] group relative overflow-hidden flex flex-col h-full hover:bg-gradient-to-r hover:from-purple-600 hover:to-violet-600`}
                         >
                             {/* Card Content */}
                             <div className="relative z-10 flex flex-col flex-grow">
                                 <div className="flex items-center gap-2 mb-4 w-full">
-                                    {domain.icon}
-                                    <h3 className="text-2xl font-bold text-gray-800">
+                                    <div className="group-hover:text-white text-purple-600">
+                                        {domain.icon}
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-gray-800 group-hover:text-white">
                                         {domain.title}
                                     </h3>
                                 </div>
 
                                 {/* Description */}
-                                <p className="text-gray-700 text-base mb-6 leading-relaxed">
+                                <p className="text-gray-700 text-base mb-6 leading-relaxed group-hover:text-white">
                                     {domain.description}
                                 </p>
 
@@ -95,22 +96,13 @@ const FreelancerDomains = () => {
                                     {domain.services.map((service, index) => (
                                         <span
                                             key={index}
-                                            className="px-4 py-2 bg-white/70 backdrop-blur-sm text-gray-800 text-sm font-medium rounded-full border border-white/40 hover:bg-white/90 transition-colors duration-200"
+                                            className="px-4 py-2 bg-white/70 backdrop-blur-sm text-gray-800 text-sm font-medium rounded-full border border-white/40"
                                         >
                                             {service}
                                         </span>
                                     ))}
                                 </div>
 
-                                {/* Push Explore button to bottom */}
-                                <div className="mt-auto flex items-center justify-between">
-                                    <span className="text-gray-800 font-semibold text-lg">
-                                        Explore
-                                    </span>
-                                    <div className="w-10 h-10 bg-white/50 rounded-full flex items-center justify-center group-hover:bg-white/80 transition-all duration-300 group-hover:scale-110">
-                                        <ArrowRight className="w-5 h-5 text-gray-800 group-hover:translate-x-0.5 transition-transform duration-200" />
-                                    </div>
-                                </div>
                             </div>
 
                             {/* Subtle Background Pattern */}

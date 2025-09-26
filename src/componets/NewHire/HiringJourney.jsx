@@ -22,7 +22,7 @@ const HiringJourneyFlow = () => {
       description: "Search through our curated pool of pre-vetted professionals. Filter by skills, experience, and availability.",
       icon: <Search className="w-8 h-8" />,
       color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-50",
+      bgColor: "bg-purple-100",
       stats: "50K+ Experts",
       features: ["AI-Powered Matching", "Skill Verification", "Portfolio Reviews"]
     },
@@ -33,7 +33,7 @@ const HiringJourneyFlow = () => {
       description: "Connect with candidates through our platform. Conduct video interviews and assess their expertise.",
       icon: <MessageCircle className="w-8 h-8" />,
       color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-50",
+      bgColor: "bg-purple-100",
       stats: "<2h Response",
       features: ["Video Interviews", "Real-time Chat", "Proposal System"]
     },
@@ -44,7 +44,7 @@ const HiringJourneyFlow = () => {
       description: "Finalize terms with smart contracts. Seamless onboarding with project milestones and secure payments.",
       icon: <Shield className="w-8 h-8" />,
       color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-50",
+      bgColor: "bg-purple-100",
       stats: "100% Secure",
       features: ["Smart Contracts", "Milestone Payments", "Legal Protection"]
     },
@@ -55,7 +55,7 @@ const HiringJourneyFlow = () => {
       description: "Monitor progress with real-time updates. Quality assurance and seamless project completion.",
       icon: <Trophy className="w-8 h-8" />,
       color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-50",
+      bgColor: "bg-purple-100",
       stats: "98.5% Success",
       features: ["Progress Tracking", "Quality Assurance", "Performance Analytics"]
     }
