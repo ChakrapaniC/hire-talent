@@ -145,11 +145,11 @@ const FreelancerHero = () => {
             {/* Enhanced Heading */}
             <div className="space-y-2">
               <h1 className="text-2xl md:text-[2.7rem] font-bold leading-snug tracking-tight">
-                <p className="text-gray-800">Hire <span className="bg-gradient-to-r from-purple-600 via-violet-600 to-purple-700 bg-clip-text text-transparent">FLEXPERTS</span>
+                <p className="text-gray-800">Hire <span className="bg-gradient-to-r from-purple-600 via-violet-600 to-purple-700 bg-clip-text text-transparent">Top Experts</span>
                 </p>
                 
                 <span className="text-gray-800 block text-2xl md:text-[2.6rem] font-bold">
-                  Expertise, Whenever You Need It
+                  Whenever you need it
                 </span>
               </h1>
               
