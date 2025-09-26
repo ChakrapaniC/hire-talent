@@ -95,7 +95,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
   };
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out mb-8 ${
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         isScrolled 
           ? 'bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-black/5' 
           : 'bg-transparent'
@@ -199,7 +199,10 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
               </button>
 
               {/* About Us */}
-              <button className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold cursor-pointer">
+              <button 
+                onClick={() => router.push('/about')}
+                className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold cursor-pointer"
+              >
                 About Us
               </button>
               </div>
@@ -214,7 +217,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
             </button>
 
             {/* Enquiry Button */}
-            <button onClick={()=> router.push('/enquiry')} className="group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
+            <button onClick={()=> router.push('/enquiry')} className="group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
               <span className="relative z-10 flex items-center space-x-2">
                 <MessageCircle className="w-4 h-4" />
                 <span>Enquiry</span>
@@ -276,7 +279,10 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
             </button>
 
             {/* About Us */}
-            <button className="block w-full text-left text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold py-2 cursor-pointer">
+            <button 
+              onClick={() => router.push('/about')}
+              className="block w-full text-left text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold py-2 cursor-pointer"
+            >
               About Us
             </button>
           </div>

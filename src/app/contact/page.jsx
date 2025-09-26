@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ContactUs from '@/componets/ContactUs/ContactUs';
-import Navbar from '@/componets/Navbar/Navbar';
 
 const ContactPage = () => {
   const router = useRouter();
@@ -10,7 +9,8 @@ const ContactPage = () => {
     email: '',
     companyName: '',
     contactName: '',
-    phoneNumber: ''
+    phoneNumber: '',
+    description: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -27,7 +27,8 @@ const ContactPage = () => {
         name: formData.contactName,
         email: formData.email,
         phone: formData.phoneNumber,
-        companyName: formData.companyName
+        companyName: formData.companyName,
+        description: formData.description
       }
       
       const response = await fetch('https://dev.api.prolegion.com/api/v1/hiringrequest', {
@@ -45,7 +46,8 @@ const ContactPage = () => {
             email: '',
             companyName: '',
             contactName: '',
-            phoneNumber: ''
+            phoneNumber: '',
+            description: ''
           });
           router.push('/');
         }, 1000);
@@ -59,32 +61,84 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-purple-25 pt-20 flex items-center justify-center">
-      <Navbar />
-      <div className="w-full max-w-2xl mx-auto px-4">
-        {/* Form Container */}
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8">
-          {/* Contact Us heading inside the form */}
-          <div className="mb-6">
-            <div className="text-xl md:text-2xl font-bold text-gray-700 text-center">
-              Contact Us
+    <div className="min-h-screen bg-purple-25">
+      {/* Header Section */}
+      <div className="relative bg-gradient-to-r from-purple-800 to-violet-900 py-16 px-4 overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full"></div>
+          <div className="absolute top-20 right-20 w-16 h-16 bg-white rounded-full"></div>
+          <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-white rounded-full"></div>
+          <div className="absolute bottom-20 right-1/3 w-14 h-14 bg-white rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white rounded-full"></div>
+        </div>
+        
+        <div className="relative max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Get in touch
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+            Complete the form below and a Flexpert representative will reach out to you shortly. 
+            For immediate assistance, please contact our support team or reach out to our customer service.
+          </p>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="py-16 px-4">
+        <div className="max-w-2xl mx-auto">
+          {/* Form Container */}
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8">
+            <div className='mt-2'>
+              <ContactUs formData={formData} updateFormData={updateFormData} />
+            </div>
+            <div className="mt-6">
+              <button
+                onClick={handleSubmit}
+                disabled={!formData.email || !formData.companyName || !formData.contactName || !formData.phoneNumber}
+                className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 transform ${
+                  formData.email && formData.companyName && formData.contactName && formData.phoneNumber
+                    ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105 cursor-pointer'
+                    : 'bg-gray-400 cursor-not-allowed'
+                }`}
+              >
+                Submit
+              </button>
             </div>
           </div>
-          
-          <div className='mt-2'>
-            <ContactUs formData={formData} updateFormData={updateFormData} />
-          </div>
-          <div className="mt-6">
-            <button
-              onClick={handleSubmit}
-              disabled={!formData.email || !formData.companyName || !formData.contactName || !formData.phoneNumber}
-              className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 transform ${
-                formData.email && formData.companyName && formData.contactName && formData.phoneNumber
-                  ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105 cursor-pointer'
-                  : 'bg-gray-400 cursor-not-allowed'
-              }`}
-            >
-              Submit
+        </div>
+      </div>
+
+        {/* Banner Section */}
+        <div className="relative mt-8 mb-8 bg-gradient-to-r from-purple-800 to-violet-900 py-16 px-4 overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full"></div>
+          <div className="absolute top-20 right-20 w-16 h-16 bg-white rounded-full"></div>
+          <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-white rounded-full"></div>
+          <div className="absolute bottom-20 right-1/3 w-14 h-14 bg-white rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white rounded-full"></div>
+        </div>
+        
+        <div className="relative max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            We connect you with the Top 3% of Freelance
+          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
+            Talent All Over The World
+          </h2>
+        </div>
+      </div>
+
+      {/* Community Section */}
+      <div className="bg-white py-12 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <p className="text-lg md:text-xl text-gray-800 font-semibold">
+              Join our community
+            </p>
+            <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105">
+              Hire Top Talent
             </button>
           </div>
         </div>

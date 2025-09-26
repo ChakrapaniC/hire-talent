@@ -121,7 +121,7 @@ const ContactUs = ({ formData, updateFormData }) => {
   }, []);
 
   return (
-    <div className="space-y-6 mt-7">
+    <div className="space-y-6 mt-2">
       <div className="grid md:grid-cols-1 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-800 mb-2">
@@ -183,6 +183,17 @@ const ContactUs = ({ formData, updateFormData }) => {
           {phoneError && (
             <p className="mt-1 text-sm text-red-600">{phoneError}</p>
           )}
+        </div>
+
+        <div>
+          
+          <textarea
+            value={formData.description || ''}
+            onChange={(e) => updateFormData('description', e.target.value)}
+            placeholder="I would like to know about..."
+            rows={4}
+            className="w-full px-4 mt-2 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
+          />
         </div>
       </div>
     </div>

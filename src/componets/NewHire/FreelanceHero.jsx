@@ -23,7 +23,7 @@ const FreelancerHero = () => {
         
         if (screenAngle >= 240 && screenAngle < 270) {
           tooltipIndex = i;
-          break; // Only one tooltip at a time
+          break; 
         }
       }
       
@@ -117,14 +117,14 @@ const FreelancerHero = () => {
       designation: "Mobile App Developer",
       rating: 4.9,
       projects: 98,
-      image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=100&h=100&fit=crop&crop=face",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professional_photos/Professional_8.jpg",
       color: "from-violet-300 to-purple-500",
       expertise: "iOS & Android"
     }
   ];
 
   return (
-    <div className="min-h-screen pt-6 md:pt-14 bg-purple-25 relative overflow-hidden">
+    <div className="py-12 bg-purple-25 relative overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-purple-50 rounded-full blur-3xl opacity-20"></div>
@@ -138,7 +138,7 @@ const FreelancerHero = () => {
         backgroundSize: '24px 24px'
       }}></div>
 
-      <div className="relative z-10 container mx-auto px-6 lg:px-8 h-screen flex items-center justify-between max-w-[90%]">
+      <div className="relative z-10 container mx-auto px-6 lg:px-8 flex items-center justify-between max-w-[90%]">
         {/* Enhanced Left Content */}
         <div className="flex-1 max-w-2xl pr-8">
           <div className="space-y-10">
@@ -185,7 +185,7 @@ const FreelancerHero = () => {
 
             {/* Enhanced CTA Buttons */}
             <div className="flex items-center space-x-4 pt-2">
-              <button onClick={() => router.push('/enquiry')} className="group px-10 py-4 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold rounded-2xl hover:from-purple-700 hover:to-violet-700 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-purple-500/20 cursor-pointer">
+              <button onClick={() => router.push('/enquiry')} className="group px-10 py-4 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-violet-700 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-purple-500/20 cursor-pointer">
                 <span className="flex items-center space-x-2">
                   <span>Find Elite Talent</span>
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
