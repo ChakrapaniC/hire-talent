@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Palette, PenTool, Camera, Layers, Brush, Sparkles, Award, Users, Star, Heart, Eye, Zap } from 'lucide-react';
+import { Palette, PenTool, Camera, Layers, Brush, Sparkles, Award, Users, Heart, Eye, Zap } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const Designers = () => {
@@ -24,7 +24,6 @@ const Designers = () => {
         { type: "Mobile App", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop" },
         { type: "Web Dashboard", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop" }
       ],
-      stats: "800+ Projects"
     },
     {
       id: 2,
@@ -38,7 +37,6 @@ const Designers = () => {
         { type: "Logo Design", image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop" },
         { type: "Brand Package", image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=300&fit=crop" }
       ],
-      stats: "500+ Brands"
     },
     {
       id: 3,
@@ -52,26 +50,9 @@ const Designers = () => {
         { type: "Marketing Materials", image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=300&fit=crop" },
         { type: "Social Media", image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=400&h=300&fit=crop" }
       ],
-      stats: "1200+ Designs"
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Product Manager, TechCorp",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-      text: "The UI/UX design completely transformed our user experience. Engagement increased by 300%!",
-      rating: 5
-    },
-    {
-      name: "Michael Chen",
-      role: "Founder, StartupXYZ",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-      text: "Our brand identity now perfectly represents our vision. Professional, creative, and memorable.",
-      rating: 5
-    }
-  ];
 
   const processSteps = [
     {
@@ -127,7 +108,7 @@ const Designers = () => {
             <span className="text-sm font-semibold text-gray-700">Creative Design Studio</span>
           </div>
           <h2 className="text-2xl md:text-5xl font-bold text-gray-800 mb-4">
-            Award-Winning <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-rose-600 bg-clip-text text-transparent">Designers</span>
+            Graphic <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-rose-600 bg-clip-text text-transparent">Designers</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Transform your ideas into stunning visual experiences with our talented designers who bring creativity, strategy, and technical excellence to every project
@@ -151,9 +132,6 @@ const Designers = () => {
                   <h3 className="text-lg font-bold text-gray-800">
                     {category.title}
                   </h3>
-                  <p className="text-sm text-gray-600">
-                    {category.stats}
-                  </p>
                 </div>
               </div>
 
@@ -192,17 +170,6 @@ const Designers = () => {
                 ))}
               </div>
 
-              {/* Stats */}
-              <div className="flex items-center justify-between pt-3 border-t border-white/50">
-                <div className="flex items-center text-pink-600">
-                  <Star className="w-4 h-4 fill-current mr-1" />
-                  <span className="text-sm font-semibold">4.9</span>
-                </div>
-                <div className="flex items-center text-gray-600">
-                  <Heart className="w-4 h-4 mr-1" />
-                  <span className="text-sm">95%</span>
-                </div>
-              </div>
             </div>
           ))}
         </div>
@@ -244,41 +211,6 @@ const Designers = () => {
           </div>
         </div>
 
-        {/* Testimonials */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              What Our <span className="bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">Clients Say</span>
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-500"
-              >
-                <div className="flex items-center mb-4">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4 object-cover"
-                  />
-                  <div>
-                    <h4 className="font-bold text-gray-800">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">{testimonial.role}</p>
-                  </div>
-                  <div className="ml-auto flex">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                </div>
-                <p className="text-gray-700 italic">"{testimonial.text}"</p>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Call to Action */}
         <div className="text-center">

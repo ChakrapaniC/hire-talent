@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Megaphone, TrendingUp, Target, BarChart3, Users, Globe, Zap, Award, ArrowUpRight, Share2, Search, Mail } from 'lucide-react';
+import { Megaphone, TrendingUp, Target, BarChart3, Globe, Zap, Share2, Search, Mail } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const MarketingExperts = () => {
@@ -20,8 +20,6 @@ const MarketingExperts = () => {
       color: "from-purple-500 to-violet-500",
       bgColor: "bg-purple-50",
       strategies: ["SEO Optimization", "Content Marketing", "Social Media", "PPC Campaigns"],
-      results: "300% ROI Average",
-      clients: "500+ Businesses"
     },
     {
       id: 2,
@@ -31,8 +29,6 @@ const MarketingExperts = () => {
       color: "from-purple-500 to-violet-500",
       bgColor: "bg-purple-50",
       strategies: ["Funnel Optimization", "A/B Testing", "Conversion Rate", "User Acquisition", "Retention"],
-      results: "250% Growth Rate",
-      clients: "200+ Startups"
     },
     {
       id: 3,
@@ -42,8 +38,6 @@ const MarketingExperts = () => {
       color: "from-purple-500 to-violet-500",
       bgColor: "bg-purple-50",
       strategies: ["Brand Strategy", "Market Research", "Competitive Analysis", "Brand Positioning", "PR"],
-      results: "400% Brand Awareness",
-      clients: "300+ Brands"
     },
     {
       id: 4,
@@ -53,18 +47,10 @@ const MarketingExperts = () => {
       color: "from-purple-500 to-violet-500",
       bgColor: "bg-purple-50",
       strategies: ["Analytics & Tracking", "Campaign Optimization", "ROI Analysis", "Attribution"],
-      results: "180% ROAS Average",
-      clients: "400+ Campaigns"
     }
   ];
 
 
-  const marketingStats = [
-    { label: "Marketing Experts", value: "8,500+", icon: <Users className="w-6 h-6" /> },
-    { label: "Campaigns Launched", value: "15,000+", icon: <Megaphone className="w-6 h-6" /> },
-    { label: "Average ROI", value: "280%", icon: <TrendingUp className="w-6 h-6" /> },
-    { label: "Client Success Rate", value: "96%", icon: <Award className="w-6 h-6" /> }
-  ];
 
   return (
     <div className="py-20 px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-indigo-50 to-violet-50 relative overflow-hidden">
@@ -100,28 +86,6 @@ const MarketingExperts = () => {
           </p>
         </div>
 
-        {/* Marketing Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {marketingStats.map((stat, index) => (
-            <div
-              key={index}
-              className={`bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl mb-4 text-white">
-                {stat.icon}
-              </div>
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent mb-2">
-                {stat.value}
-              </div>
-              <div className="text-gray-600 text-sm font-medium">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
 
         {/* Marketing Services */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
@@ -166,24 +130,6 @@ const MarketingExperts = () => {
                 </div>
               </div>
 
-              {/* Results */}
-              <div className="flex items-center justify-between pt-4 border-t border-white/50">
-                <div className="text-center">
-                  <div className="text-lg font-bold bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">
-                    {service.results}
-                  </div>
-                  <div className="text-xs text-gray-600">Average Results</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lg font-bold bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">
-                    {service.clients}
-                  </div>
-                  <div className="text-xs text-gray-600">Served</div>
-                </div>
-                <div className="flex items-center text-purple-600">
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
-              </div>
             </div>
           ))}
         </div>

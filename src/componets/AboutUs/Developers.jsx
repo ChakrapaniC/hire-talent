@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Code, Terminal, Database, Cloud, GitBranch, Zap, Shield, Rocket, Monitor, Smartphone, Globe } from 'lucide-react';
+import { Code, Terminal, Database, Cloud, GitBranch, Smartphone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const Developers = () => {
@@ -19,9 +19,7 @@ const Developers = () => {
       icon: <Code className="w-8 h-8" />,
       color: "from-purple-500 to-violet-500",
       bgColor: "bg-purple-50",
-      technologies: ["React", "Node.js", "Python", "TypeScript", "MongoDB"],
-      projects: "500+ Completed",
-      experience: "5-10 Years Avg"
+      technologies: ["React", "Node.js", "Python", "TypeScript", "MongoDB"]
     },
     {
       id: 2,
@@ -30,9 +28,7 @@ const Developers = () => {
       icon: <Smartphone className="w-8 h-8" />,
       color: "from-purple-500 to-violet-500",
       bgColor: "bg-purple-50",
-      technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Xamarin"],
-      projects: "300+ Apps Built",
-      experience: "3-8 Years Avg"
+      technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Xamarin"]
     },
     {
       id: 3,
@@ -41,9 +37,7 @@ const Developers = () => {
       icon: <Cloud className="w-8 h-8" />,
       color: "from-purple-500 to-violet-500",
       bgColor: "bg-purple-50",
-      technologies: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform"],
-      projects: "200+ Deployments",
-      experience: "4-12 Years Avg"
+      technologies: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform"]
     },
     {
       id: 4,
@@ -52,18 +46,10 @@ const Developers = () => {
       icon: <Database className="w-8 h-8" />,
       color: "from-purple-500 to-violet-500",
       bgColor: "bg-purple-50",
-      technologies: ["Python", "SQL", "TensorFlow", "Spark", "BigQuery"],
-      projects: "150+ Data Projects",
-      experience: "3-10 Years Avg"
+      technologies: ["Python", "SQL", "TensorFlow", "Spark", "BigQuery"]
     }
   ];
 
-  const stats = [
-    { label: "Active Developers", value: "15,000+", icon: <Monitor className="w-6 h-6" /> },
-    { label: "Projects Completed", value: "25,000+", icon: <Rocket className="w-6 h-6" /> },
-    { label: "Success Rate", value: "99.2%", icon: <Shield className="w-6 h-6" /> },
-    { label: "Avg. Response Time", value: "<2 Hours", icon: <Zap className="w-6 h-6" /> }
-  ];
 
   return (
     <div className="py-20 px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-indigo-50 to-violet-50 relative overflow-hidden">
@@ -99,28 +85,6 @@ const Developers = () => {
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className={`bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl mb-4 text-white">
-                {stat.icon}
-              </div>
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent mb-2">
-                {stat.value}
-              </div>
-              <div className="text-gray-600 text-sm font-medium">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
 
         {/* Skill Categories */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -165,24 +129,6 @@ const Developers = () => {
                 </div>
               </div>
 
-              {/* Stats */}
-              <div className="flex items-center justify-between pt-4 border-t border-white/50">
-                <div className="text-center">
-                  <div className="text-lg font-bold bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">
-                    {skill.projects}
-                  </div>
-                  <div className="text-xs text-gray-600">Projects</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lg font-bold bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">
-                    {skill.experience}
-                  </div>
-                  <div className="text-xs text-gray-600">Experience</div>
-                </div>
-                <div className="flex items-center text-purple-600">
-                  <Globe className="w-4 h-4" />
-                </div>
-              </div>
             </div>
           ))}
         </div>

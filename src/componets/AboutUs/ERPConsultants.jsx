@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Building2, BarChart3, Users, Settings, TrendingUp, Shield, Zap, Award, CheckCircle, ArrowRight, Globe, Target } from 'lucide-react';
+import { Building2, BarChart3, Users, Settings, Shield, Zap, Award, CheckCircle, Globe, Target } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const ERPConsultants = () => {
@@ -20,8 +20,6 @@ const ERPConsultants = () => {
       color: "from-indigo-500 to-blue-500",
       bgColor: "bg-indigo-50",
       features: ["System Analysis", "Custom Configuration", "Data Migration", "User Training", "Go-Live Support"],
-      duration: "3-12 Months",
-      successRate: "98%"
     },
     {
       id: 2,
@@ -31,8 +29,6 @@ const ERPConsultants = () => {
       color: "from-indigo-500 to-blue-500",
       bgColor: "bg-indigo-50",
       features: ["Process Mapping", "Gap Analysis", "Workflow Design", "KPI Development", "Change Management"],
-      duration: "2-6 Months",
-      successRate: "95%"
     },
     {
       id: 3,
@@ -42,8 +38,6 @@ const ERPConsultants = () => {
       color: "from-indigo-500 to-blue-500",
       bgColor: "bg-indigo-50",
       features: ["Cloud Migration", "Automation", "Integration", "Analytics", "Mobile Solutions"],
-      duration: "6-18 Months",
-      successRate: "92%"
     }
   ];
 
@@ -51,67 +45,35 @@ const ERPConsultants = () => {
     {
       name: "Manufacturing",
       icon: <Building2 className="w-6 h-6" />,
-      projects: "150+",
       color: "from-blue-500 to-cyan-500"
     },
     {
       name: "Healthcare",
       icon: <Shield className="w-6 h-6" />,
-      projects: "120+",
       color: "from-green-500 to-emerald-500"
     },
     {
       name: "Retail",
       icon: <Users className="w-6 h-6" />,
-      projects: "200+",
       color: "from-orange-500 to-red-500"
     },
     {
       name: "Finance",
       icon: <BarChart3 className="w-6 h-6" />,
-      projects: "100+",
       color: "from-purple-500 to-violet-500"
     },
     {
       name: "Education",
       icon: <Award className="w-6 h-6" />,
-      projects: "80+",
       color: "from-pink-500 to-rose-500"
     },
     {
       name: "Government",
       icon: <Globe className="w-6 h-6" />,
-      projects: "60+",
       color: "from-indigo-500 to-blue-500"
     }
   ];
 
-  const successMetrics = [
-    {
-      metric: "ERP Consultants",
-      value: "2,500+",
-      icon: <Users className="w-6 h-6" />,
-      description: "Certified professionals"
-    },
-    {
-      metric: "Projects Completed",
-      value: "1,200+",
-      icon: <CheckCircle className="w-6 h-6" />,
-      description: "Successful implementations"
-    },
-    {
-      metric: "Client Satisfaction",
-      value: "97%",
-      icon: <Award className="w-6 h-6" />,
-      description: "Repeat business rate"
-    },
-    {
-      metric: "ROI Improvement",
-      value: "250%",
-      icon: <TrendingUp className="w-6 h-6" />,
-      description: "Average client ROI"
-    }
-  ];
 
 
   return (
@@ -148,31 +110,6 @@ const ERPConsultants = () => {
           </p>
         </div>
 
-        {/* Success Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {successMetrics.map((metric, index) => (
-            <div
-              key={index}
-              className={`bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-xl mb-4 text-white">
-                {metric.icon}
-              </div>
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent mb-2">
-                {metric.value}
-              </div>
-              <div className="text-gray-600 text-sm font-medium mb-1">
-                {metric.metric}
-              </div>
-              <div className="text-xs text-gray-500">
-                {metric.description}
-              </div>
-            </div>
-          ))}
-        </div>
 
         {/* ERP Services */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
@@ -191,9 +128,6 @@ const ERPConsultants = () => {
                   <h3 className="text-lg font-bold text-gray-800">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-gray-600">
-                    {service.successRate} Success Rate
-                  </p>
                 </div>
               </div>
 
@@ -214,18 +148,6 @@ const ERPConsultants = () => {
                 </div>
               </div>
 
-              {/* Duration */}
-              <div className="flex items-center justify-between pt-4 border-t border-white/50">
-                <div className="text-center">
-                  <div className="text-lg font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
-                    {service.duration}
-                  </div>
-                  <div className="text-xs text-gray-600">Duration</div>
-                </div>
-                <div className="flex items-center text-indigo-600">
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-              </div>
             </div>
           ))}
         </div>
@@ -252,9 +174,6 @@ const ERPConsultants = () => {
                 </div>
                 <div className="text-lg font-bold text-gray-800 mb-1">
                   {industry.name}
-                </div>
-                <div className="text-sm text-gray-600">
-                  {industry.projects} Projects
                 </div>
               </div>
             ))}
