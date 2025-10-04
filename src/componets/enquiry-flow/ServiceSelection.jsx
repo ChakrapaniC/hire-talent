@@ -46,8 +46,8 @@ const ServiceSelection = ({ formData, updateFormData }) => {
             className={`w-full lg:px-8 px-4 py-4 rounded-xl border text-left transition-all group cursor-pointer
               ${
                 isActive
-                  ? "border-purple-600 shadow-lg scale-105 bg-gradient-to-r from-purple-600 to-violet-600"
-                  : "border-gray-300 bg-white hover:bg-gradient-to-r hover:from-purple-600 hover:to-violet-600 hover:scale-105 hover:shadow-lg"
+                  ? "border-blue-600 shadow-lg scale-105 bg-gradient-to-r from-blue-600 to-cyan-500"
+                  : "border-gray-300 bg-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500 hover:scale-105 hover:shadow-lg"
               }
             `}
           >

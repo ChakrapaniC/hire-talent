@@ -61,9 +61,9 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-purple-25">
+    <div className="min-h-screen bg-blue-25">
       {/* Header Section */}
-      <div className="relative bg-gradient-to-r from-purple-800 to-violet-900 py-16 px-4 overflow-hidden">
+      <div className="relative bg-gradient-to-r from-blue-800 to-cyan-900 py-16 px-4 overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full"></div>
@@ -98,7 +98,7 @@ const ContactPage = () => {
                 disabled={!formData.email || !formData.companyName || !formData.contactName || !formData.phoneNumber}
                 className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 transform ${
                   formData.email && formData.companyName && formData.contactName && formData.phoneNumber
-                    ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105 cursor-pointer'
+                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 cursor-pointer'
                     : 'bg-gray-400 cursor-not-allowed'
                 }`}
               >
@@ -110,7 +110,7 @@ const ContactPage = () => {
       </div>
 
         {/* Banner Section */}
-        <div className="relative mt-8 mb-8 bg-gradient-to-r from-purple-800 to-violet-900 py-16 px-4 overflow-hidden">
+        <div className="relative mt-8 mb-8 bg-gradient-to-r from-blue-800 to-cyan-900 py-16 px-4 overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full"></div>
@@ -137,7 +137,10 @@ const ContactPage = () => {
             <p className="text-lg md:text-xl text-gray-800 font-semibold">
               Join our community
             </p>
-            <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105">
+            <button 
+              onClick={() => router.push('/enquiry')}
+              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 cursor-pointer"
+            >
               Hire Top Talent
             </button>
           </div>

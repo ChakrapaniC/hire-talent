@@ -32,8 +32,8 @@ const TimeCommitment = ({ formData, updateFormData }) => {
             className={`w-full px-5 py-5 lg:px-8 rounded-xl border-1 text-left transition-all group cursor-pointer
               ${
                 isActive
-                  ? "border-purple-600 shadow-lg scale-105 bg-gradient-to-r from-purple-600 to-violet-600"
-                  : "border-gray-200 shadow-sm bg-white hover:border-purple-600 hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-purple-600 hover:to-violet-600"
+                  ? "border-blue-600 shadow-lg scale-105 bg-gradient-to-r from-blue-600 to-cyan-500"
+                  : "border-gray-200 shadow-sm bg-white hover:border-blue-600 hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500"
               }
             `}
           >

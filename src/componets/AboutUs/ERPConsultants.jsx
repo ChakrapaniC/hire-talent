@@ -60,7 +60,7 @@ const ERPConsultants = () => {
     {
       name: "Finance",
       icon: <BarChart3 className="w-6 h-6" />,
-      color: "from-purple-500 to-violet-500"
+      color: "from-blue-500 to-cyan-500"
     },
     {
       name: "Education",
@@ -77,7 +77,7 @@ const ERPConsultants = () => {
 
 
   return (
-    <div className="py-20 px-6 lg:px-8 bg-gradient-to-br from-indigo-50 via-blue-50 to-purple-50 relative overflow-hidden">
+    <div className="py-20 px-6 lg:px-8 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-20 animate-pulse"></div>
@@ -90,7 +90,7 @@ const ERPConsultants = () => {
         <div className="absolute top-40 left-20 text-blue-200 opacity-30 animate-bounce" style={{ animationDelay: '0.5s' }}>
           <BarChart3 className="w-5 h-5" />
         </div>
-        <div className="absolute bottom-20 left-1/4 text-purple-200 opacity-30 animate-bounce" style={{ animationDelay: '1s' }}>
+        <div className="absolute bottom-20 left-1/4 text-cyan-200 opacity-30 animate-bounce" style={{ animationDelay: '1s' }}>
           <Settings className="w-4 h-4" />
         </div>
       </div>
@@ -103,7 +103,7 @@ const ERPConsultants = () => {
             <span className="text-sm font-semibold text-gray-700">Enterprise Solutions</span>
           </div>
           <h2 className="text-2xl md:text-5xl font-bold text-gray-800 mb-4">
-            Expert <span className="bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">ERP Consultants</span>
+            Expert <span className="bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">ERP Consultants</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Transform your business operations with experienced ERP consultants who deliver enterprise-grade solutions, streamline processes, and drive digital transformation

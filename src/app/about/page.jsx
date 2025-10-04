@@ -242,8 +242,8 @@ const AboutUs = () => {
                 onClick={() => handleTabClick(0)}
                 className={`pb-3 px-1 text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer ${
                   activeTab === 0
-                    ? 'text-purple-600 border-purple-600'
-                    : 'text-gray-600 border-transparent hover:text-purple-500'
+                    ? 'text-blue-600 border-blue-600'
+                    : 'text-gray-600 border-transparent hover:text-blue-500'
                 }`}
               >
                 Developers
@@ -284,7 +284,7 @@ const AboutUs = () => {
       </div>
 
       {/* Tab Content */}
-      <div className="bg-purple-25">
+      <div className="bg-blue-25">
         {/* Tab 1: Developers */}
         <div ref={developersRef}>
           <Developers />

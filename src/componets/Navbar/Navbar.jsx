@@ -108,7 +108,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
               {/* Logo */}
               <div className="flex items-center cursor-pointer" onClick={() => router.push('/')}>
                 <img 
-                  src="https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-flexpert/image+(1).jpeg" 
+                  src="https://prolegion-assets.s3.ap-south-1.amazonaws.com/FLexpert+Logo.png" 
                   alt="Logo" 
                   className="h-8 md:h-12 w-auto object-contain transition-all duration-300 hover:scale-105"
                 />
@@ -133,7 +133,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
                   setDropdownTimeout(timeout);
                 }}
               >
-                <button className="flex items-center space-x-1 text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold cursor-pointer">
+                <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold cursor-pointer">
                   <span>Hire Talent</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
@@ -152,7 +152,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
                               key={category}
                               className={`w-full text-left px-3 py-2 rounded-md text-sm font-bold transition-colors duration-200 cursor-pointer ${
                                 activeCategory === category
-                                  ? 'bg-purple-100 text-purple-700 border-l-4 border-purple-600'
+                                  ? 'bg-blue-100 text-blue-700 border-l-4 border-blue-600'
                                   : 'text-gray-700 hover:bg-gray-100'
                               }`}
                               onClick={() => setActiveCategory(category)}
@@ -172,7 +172,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
                           {dropdownData[activeCategory]?.map((item, index) => (
                             <button
                               key={index}
-                              className="text-left px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 rounded-md transition-colors duration-200 cursor-pointer"
+                              className="text-left px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-md transition-colors duration-200 cursor-pointer"
                                onClick={() => {
                                  // Navigate to enquiry step 2 with pre-selected service category
                                  setIsDropdownOpen(false);
@@ -193,7 +193,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
               {/* Contact Us */}
               <button 
                 onClick={() => router.push('/contact')}
-                className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold cursor-pointer"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold cursor-pointer"
               >
                 Contact Us
               </button>
@@ -201,7 +201,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
               {/* About Us */}
               <button 
                 onClick={() => router.push('/about')}
-                className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold cursor-pointer"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold cursor-pointer"
               >
                 About Us
               </button>
@@ -217,12 +217,12 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
             </button>
 
             {/* Enquiry Button */}
-            <button onClick={()=> router.push('/enquiry')} className="group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
+            <button onClick={()=> router.push('/enquiry')} className="group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
               <span className="relative z-10 flex items-center space-x-2">
                 <MessageCircle className="w-4 h-4" />
                 <span>Enquiry</span>
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
           </div>
         </div>
@@ -235,7 +235,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
             {/* Hire Talent Mobile Section */}
             <div>
               <button 
-                className="flex items-center justify-between w-full text-left text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold py-2 cursor-pointer"
+                className="flex items-center justify-between w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold py-2 cursor-pointer"
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               >
                 <span>Hire Talent</span>
@@ -247,7 +247,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
                   {Object.keys(dropdownData).map((category) => (
                     <div key={category} className="space-y-1">
                       <button
-                        className="text-left text-sm font-bold text-gray-700 hover:text-purple-600 transition-colors duration-200 cursor-pointer"
+                        className="text-left text-sm font-bold text-gray-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
                         onClick={() => setActiveCategory(category)}
                       >
                         {category}
@@ -257,7 +257,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
                           {dropdownData[category]?.slice(0, 10).map((item, index) => (
                             <button
                               key={index}
-                              className="text-left text-xs text-gray-600 hover:text-purple-600 transition-colors duration-200 py-1 cursor-pointer"
+                              className="text-left text-xs text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 cursor-pointer"
                             >
                               {item}
                             </button>
@@ -273,7 +273,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
             {/* Contact Us */}
             <button 
               onClick={() => router.push('/contact')}
-              className="block w-full text-left text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold py-2 cursor-pointer"
+              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold py-2 cursor-pointer"
             >
               Contact Us
             </button>
@@ -281,7 +281,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
             {/* About Us */}
             <button 
               onClick={() => router.push('/about')}
-              className="block w-full text-left text-gray-700 hover:text-purple-600 transition-colors duration-200 font-bold py-2 cursor-pointer"
+              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold py-2 cursor-pointer"
             >
               About Us
             </button>
@@ -294,7 +294,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
           <div className="w-full">
             <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-purple-600 to-violet-600 transition-all duration-500 ease-out"
+                className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 transition-all duration-500 ease-out"
                 style={{ width: `${getProgressPercentage()}%` }}
               />
             </div>

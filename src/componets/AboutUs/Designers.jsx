@@ -194,7 +194,7 @@ const Designers = () => {
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }} 
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-500 rounded-xl mb-4 text-white">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl mb-4 text-white">
                   {step.icon}
                 </div>
                 <div className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-2">

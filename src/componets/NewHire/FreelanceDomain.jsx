@@ -8,7 +8,7 @@ const FreelancerDomains = () => {
             id: 1,
             title: "Web Design",
             description: "Crafts engaging, user-friendly websites.",
-            bgColor: "bg-purple-100",
+            bgColor: "bg-blue-100",
             icon: <Palette className="w-8 h-8" />,
             services: ["Landing Page", "Portfolio", "Business Website", "E-commerce"]
         },
@@ -16,7 +16,7 @@ const FreelancerDomains = () => {
             id: 2,
             title: "Graphic Design",
             description: "Creates impactful visuals and branding.",
-            bgColor: "bg-purple-100",
+            bgColor: "bg-blue-100",
             icon: <PenTool className="w-8 h-8" />,
             services: ["Packaging", "Brand Identity", "Illustrations", "Logo"]
         },
@@ -24,7 +24,7 @@ const FreelancerDomains = () => {
             id: 3,
             title: "Developers",
             description: "Builds functional and scalable solutions.",
-            bgColor: "bg-purple-100",
+            bgColor: "bg-blue-100",
             icon: <Code className="w-8 h-8" />,
             services: ["Web Apps", "Mobile Apps", "APIs", "Database"]
         },
@@ -32,7 +32,7 @@ const FreelancerDomains = () => {
             id: 4,
             title: "Copywriting",
             description: "Delivers persuasive and creative content.",
-            bgColor: "bg-purple-100",
+            bgColor: "bg-blue-100",
             icon: <Type className="w-8 h-8" />,
             services: ["Blog Posts", "Ad Copies", "Sales Pages", "Slogans"]
         },
@@ -40,7 +40,7 @@ const FreelancerDomains = () => {
             id: 5,
             title: "Business Consulting",
             description: "Helps optimize strategy and operations.",
-            bgColor: "bg-purple-100",
+            bgColor: "bg-blue-100",
             icon: <Briefcase className="w-8 h-8" />,
             services: ["Strategy", "Market Research", "Finance", "Operations"]
         },
@@ -48,7 +48,7 @@ const FreelancerDomains = () => {
             id: 6,
             title: "Digital Marketing",
             description: "Drives growth through online campaigns.",
-            bgColor: "bg-purple-100",
+            bgColor: "bg-blue-100",
             icon: <Megaphone className="w-8 h-8" />,
             services: ["SEO", "Social Media", "Email Marketing", "PPC Ads"]
         }
@@ -56,12 +56,12 @@ const FreelancerDomains = () => {
 
 
     return (
-        <div className="py-20 px-6 lg:px-8 bg-purple-25">
+        <div className="py-20 px-6 lg:px-8 bg-blue-25">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-2xl md:text-5xl font-bold text-gray-800 mb-4">
-                        Find Your <span className="bg-gradient-to-r from-purple-600 via-violet-600 to-purple-700 bg-clip-text text-transparent">Flexpert</span>
+                        Find Your <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">Flexpert</span>
                     </h2>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                         Discover talented professionals across various domains to bring your projects to life
@@ -73,12 +73,12 @@ const FreelancerDomains = () => {
                     {domains.map((domain) => (
                         <div
                             key={domain.id}
-                            className={`${domain.bgColor} rounded-3xl py-8 px-4 hover:shadow-lg hover:scale-[1.02] group relative overflow-hidden flex flex-col h-full hover:bg-gradient-to-r hover:from-purple-600 hover:to-violet-600`}
+                            className={`${domain.bgColor} rounded-3xl py-8 px-4 hover:shadow-lg hover:scale-[1.02] group relative overflow-hidden flex flex-col h-full hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500`}
                         >
                             {/* Card Content */}
                             <div className="relative z-10 flex flex-col flex-grow">
                                 <div className="flex items-center gap-2 mb-4 w-full">
-                                    <div className="group-hover:text-white text-purple-600">
+                                    <div className="group-hover:text-white text-blue-600">
                                         {domain.icon}
                                     </div>
                                     <h3 className="text-2xl font-bold text-gray-800 group-hover:text-white">

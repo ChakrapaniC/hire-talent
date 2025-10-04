@@ -132,7 +132,7 @@ const ContactUs = ({ formData, updateFormData }) => {
             value={formData.email || ''}
             onChange={handleEmailChange}
             placeholder="my.name@company.com"
-            className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
+            className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
               emailError ? 'border-red-500' : 'border-gray-300'
             }`}
           />
@@ -150,7 +150,7 @@ const ContactUs = ({ formData, updateFormData }) => {
             value={formData.companyName || ''}
             onChange={(e) => updateFormData('companyName', e.target.value)}
             placeholder="Company name"
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
 
@@ -163,7 +163,7 @@ const ContactUs = ({ formData, updateFormData }) => {
             value={formData.contactName || ''}
             onChange={(e) => updateFormData('contactName', e.target.value)}
             placeholder="Contact name"
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
 
@@ -176,7 +176,7 @@ const ContactUs = ({ formData, updateFormData }) => {
             value={formData.phoneNumber || ''}
             onChange={handlePhoneChange}
             placeholder="Phone number"
-            className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
+            className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
               phoneError ? 'border-red-500' : 'border-gray-300'
             }`}
           />
@@ -192,7 +192,7 @@ const ContactUs = ({ formData, updateFormData }) => {
             onChange={(e) => updateFormData('description', e.target.value)}
             placeholder="I would like to know about..."
             rows={4}
-            className="w-full px-4 mt-2 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
+            className="w-full px-4 mt-2 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
           />
         </div>
       </div>

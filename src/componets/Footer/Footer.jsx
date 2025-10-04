@@ -42,7 +42,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {Object.entries(jobCategories).map(([category, jobs]) => (
               <div key={category} className="group">
-                <h4 className="text-lg font-semibold text-purple-400 mb-3 border-b border-purple-900 pb-2 group-hover:text-purple-300 transition-colors duration-200">
+                <h4 className="text-lg font-semibold text-blue-400 mb-3 border-b border-blue-900 pb-2 group-hover:text-blue-300 transition-colors duration-200">
                   {category}
                 </h4>
                 <ul className="space-y-1">
@@ -67,7 +67,7 @@ const Footer = () => {
             {/* Logo */}
             <div className="flex items-center cursor-pointer group" onClick={() => router.push('/')}>
               <img 
-                src="https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-flexpert/image+(1).jpeg" 
+                src="https://prolegion-assets.s3.ap-south-1.amazonaws.com/FLexpert+Logo.png" 
                 alt="Flexpert Logo" 
                 className="h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
               />

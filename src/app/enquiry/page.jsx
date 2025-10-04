@@ -182,7 +182,7 @@ const EnquiryFlow = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-purple-25 pt-20">
+    <div className="min-h-screen bg-blue-25 pt-20">
       <Suspense fallback={<div>Loading...</div>}>
         <EnquiryFlowWithSearchParams onServiceParamChange={handleServiceParamChange} />
       </Suspense>
@@ -228,7 +228,7 @@ const EnquiryFlow = () => {
                 onClick={handleSubmit}
                 disabled={!getStepValidation(currentStep, formData)}
                 className={`flex items-center justify-center w-full space-x-2 px-8 py-2 rounded-xl font-semibold transition-all cursor-pointer ${getStepValidation(currentStep, formData)
-                    ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white hover:shadow-lg hover:shadow-purple-500/25 transform hover:scale-105'
+                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-500/25 transform hover:scale-105'
                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   }`}
               >

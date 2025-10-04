@@ -48,7 +48,7 @@ const FreelancerHero = () => {
       rating: 5.0,
       projects: 127,
       image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-talent/anil-sharma-NvzyEHQwbqk-unsplash.jpg",
-      color: "from-purple-300 to-purple-400",
+      color: "from-blue-300 to-blue-400",
       expertise: "Product Design"
     },
     {
@@ -58,7 +58,7 @@ const FreelancerHero = () => {
       rating: 4.9,
       projects: 89,
       image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-talent/ofspace-llc-mIgJpximElQ-unsplash.jpg",
-      color: "from-violet-300 to-violet-400",
+      color: "from-cyan-300 to-cyan-400",
       expertise: "React & Node.js"
     },
     {
@@ -68,7 +68,7 @@ const FreelancerHero = () => {
       rating: 5.0,
       projects: 156,
       image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_2.jpg",
-      color: "from-purple-300 to-violet-400",
+      color: "from-blue-300 to-cyan-400",
       expertise: "Digital Growth"
     },
     {
@@ -78,7 +78,7 @@ const FreelancerHero = () => {
       rating: 4.8,
       projects: 173,
       image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_1.jpg",
-      color: "from-violet-300 to-purple-400",
+      color: "from-cyan-300 to-blue-400",
       expertise: "ML & Analytics"
     },
     {
@@ -88,7 +88,7 @@ const FreelancerHero = () => {
       rating: 4.9,
       projects: 112,
       image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-talent/mausam-majhi-VUGBcg9ZHBI-unsplash.jpg",
-      color: "from-purple-300 to-purple-500",
+      color: "from-blue-300 to-blue-500",
       expertise: "Content Strategy"
     },
     {
@@ -98,7 +98,7 @@ const FreelancerHero = () => {
       rating: 5.0,
       projects: 104,
       image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_3.jpg",
-      color: "from-violet-300 to-violet-500",
+      color: "from-cyan-300 to-cyan-500",
       expertise: "Brand Design"
     },
     {
@@ -108,7 +108,7 @@ const FreelancerHero = () => {
       rating: 4.8,
       projects: 67,
       image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_4.jpg",
-      color: "from-purple-300 to-violet-500",
+      color: "from-blue-300 to-cyan-500",
       expertise: "Cloud Infrastructure"
     },
     {
@@ -118,18 +118,18 @@ const FreelancerHero = () => {
       rating: 4.9,
       projects: 98,
       image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professional_photos/Professional_8.jpg",
-      color: "from-violet-300 to-purple-500",
+      color: "from-cyan-300 to-blue-500",
       expertise: "iOS & Android"
     }
   ];
 
   return (
-    <div className="py-12 bg-purple-25 relative overflow-hidden">
+    <div className="py-12 bg-blue-25 relative overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-50 rounded-full blur-3xl opacity-20"></div>
-        <div className="absolute top-20 right-0 w-80 h-80 bg-violet-50 rounded-full blur-3xl opacity-20"></div>
-        <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-purple-50 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute top-20 right-0 w-80 h-80 bg-cyan-50 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-blue-50 rounded-full blur-3xl opacity-20"></div>
       </div>
 
       {/* Subtle Grid Pattern */}
@@ -145,7 +145,7 @@ const FreelancerHero = () => {
             {/* Enhanced Heading */}
             <div className="space-y-2">
               <h1 className="text-2xl md:text-[2.7rem] font-bold leading-snug tracking-tight">
-                <p className="text-gray-800">Hire <span className="bg-gradient-to-r from-purple-600 via-violet-600 to-purple-700 bg-clip-text text-transparent">Top Experts</span>
+                <p className="text-gray-800">Hire <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">Top Experts</span>
                 </p>
                 
                 <span className="text-gray-800 block text-2xl md:text-[2.6rem] font-bold">
@@ -161,31 +161,31 @@ const FreelancerHero = () => {
             {/* Enhanced Stats */}
             <div className="grid grid-cols-3 gap-8 pt-0">
               <div className="group">
-                <div className="text-2xl md:text-4xl font-bold bg-gradient-to-br from-purple-600 to-purple-700 bg-clip-text text-transparent">
+                <div className="text-2xl md:text-4xl font-bold bg-gradient-to-br from-blue-600 to-blue-700 bg-clip-text text-transparent">
                   50K+
                 </div>
                 <div className="text-slate-600 text-sm font-medium mt-1">Expert Freelancers</div>
-                <div className="w-full h-1 bg-gradient-to-r from-purple-200 to-transparent rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="w-full h-1 bg-gradient-to-r from-blue-200 to-transparent rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="group">
-                <div className="text-2xl md:text-4xl font-bold bg-gradient-to-br from-violet-600 to-violet-700 bg-clip-text text-transparent">
+                <div className="text-2xl md:text-4xl font-bold bg-gradient-to-br from-cyan-500 to-cyan-600 bg-clip-text text-transparent">
                   98.5%
                 </div>
                 <div className="text-slate-600 text-sm font-medium mt-1">Success Rate</div>
-                <div className="w-full h-1 bg-gradient-to-r from-violet-200 to-transparent rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="w-full h-1 bg-gradient-to-r from-cyan-200 to-transparent rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="group">
-                <div className="text-2xl lg:text-4xl font-bold bg-gradient-to-br from-purple-600 to-violet-700 bg-clip-text text-transparent">
+                <div className="text-2xl lg:text-4xl font-bold bg-gradient-to-br from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   &lt;12h
                 </div>
                 <div className="text-slate-600 text-sm font-medium mt-1">Avg. Response</div>
-                <div className="w-full h-1 bg-gradient-to-r from-purple-200 to-transparent rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="w-full h-1 bg-gradient-to-r from-blue-200 to-transparent rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             </div>
 
             {/* Enhanced CTA Buttons */}
             <div className="flex items-center space-x-4 pt-2">
-              <button onClick={() => router.push('/enquiry')} className="group px-10 py-4 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-violet-700 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-purple-500/20 cursor-pointer">
+              <button onClick={() => router.push('/enquiry')} className="group px-10 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer">
                 <span className="flex items-center space-x-2">
                   <span>Find Elite Talent</span>
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -201,10 +201,10 @@ const FreelancerHero = () => {
         <div className="flex-1 flex justify-end items-center">
           <div className="relative w-[500px] h-[500px]">
             {/* Central Professional Hub */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-purple-800 to-violet-900 rounded-full shadow-2xl flex items-center justify-center border-4 border-white z-10">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-blue-800 to-cyan-900 rounded-full shadow-2xl flex items-center justify-center border-4 border-white z-10">
               <div className="text-center">
                 <div className="text-white text-lg font-bold">HIRE</div>
-                <div className="text-purple-300 text-xs font-medium">FLEXPERT</div>
+                <div className="text-blue-300 text-xs font-medium">FLEXPERT</div>
               </div>
             </div>
 
@@ -268,7 +268,7 @@ const FreelancerHero = () => {
                             </div>
                             <span className="text-xs text-slate-500">{freelancer.projects} projects</span>
                           </div>
-                          <div className="mt-1 text-xs text-purple-600 font-medium">{freelancer.expertise}</div>
+                          <div className="mt-1 text-xs text-blue-600 font-medium">{freelancer.expertise}</div>
                         </div>
                         {/* Arrow pointing right to profile */}
                         <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-l-4 border-transparent border-l-white/95"></div>
@@ -305,16 +305,16 @@ const FreelancerHero = () => {
                 />
                 <defs>
                   <linearGradient id="professionalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{stopColor: '#9333ea', stopOpacity: 0.6}} />
-                    <stop offset="50%" style={{stopColor: '#8b5cf6', stopOpacity: 0.6}} />
-                    <stop offset="100%" style={{stopColor: '#7c3aed', stopOpacity: 0.6}} />
+                    <stop offset="0%" style={{stopColor: '#123dbd', stopOpacity: 0.6}} />
+                    <stop offset="50%" style={{stopColor: '#00bafa', stopOpacity: 0.6}} />
+                    <stop offset="100%" style={{stopColor: '#0539a6', stopOpacity: 0.6}} />
                   </linearGradient>
                 </defs>
               </svg>
             </div>
 
             {/* Professional Glow Effect */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-br from-purple-500/10 to-violet-500/10 rounded-full blur-xl animate-pulse"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-xl animate-pulse"></div>
           </div>
         </div>
       </div>

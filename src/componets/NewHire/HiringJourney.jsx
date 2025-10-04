@@ -21,8 +21,8 @@ const HiringJourneyFlow = () => {
       subtitle: "Browse & Filter",
       description: "Search through our curated pool of pre-vetted professionals. Filter by skills, experience, and availability.",
       icon: <Search className="w-8 h-8" />,
-      color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-100",
+      color: "from-blue-500 to-blue-600",
+      bgColor: "bg-blue-100",
       stats: "50K+ Experts",
       features: ["AI-Powered Matching", "Skill Verification", "Portfolio Reviews"]
     },
@@ -32,8 +32,8 @@ const HiringJourneyFlow = () => {
       subtitle: "Chat & Interview",
       description: "Connect with candidates through our platform. Conduct video interviews and assess their expertise.",
       icon: <MessageCircle className="w-8 h-8" />,
-      color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-100",
+      color: "from-blue-500 to-blue-600",
+      bgColor: "bg-blue-100",
       stats: "<2h Response",
       features: ["Video Interviews", "Real-time Chat", "Proposal System"]
     },
@@ -43,8 +43,8 @@ const HiringJourneyFlow = () => {
       subtitle: "Contract & Onboard",
       description: "Finalize terms with smart contracts. Seamless onboarding with project milestones and secure payments.",
       icon: <Shield className="w-8 h-8" />,
-      color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-100",
+      color: "from-blue-500 to-blue-600",
+      bgColor: "bg-blue-100",
       stats: "100% Secure",
       features: ["Smart Contracts", "Milestone Payments", "Legal Protection"]
     },
@@ -54,8 +54,8 @@ const HiringJourneyFlow = () => {
       subtitle: "Track & Complete",
       description: "Monitor progress with real-time updates. Quality assurance and seamless project completion.",
       icon: <Trophy className="w-8 h-8" />,
-      color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-100",
+      color: "from-blue-500 to-blue-600",
+      bgColor: "bg-blue-100",
       stats: "98.5% Success",
       features: ["Progress Tracking", "Quality Assurance", "Performance Analytics"]
     }
@@ -69,11 +69,11 @@ const HiringJourneyFlow = () => {
   ];
 
   return (
-    <div className="py-20 px-6 lg:px-8 bg-purple-25 relative overflow-hidden">
+    <div className="py-20 px-6 lg:px-8 bg-blue-25 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-50 rounded-full blur-3xl animate-pulse opacity-20"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-violet-50 rounded-full blur-3xl animate-pulse opacity-20" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-50 rounded-full blur-3xl animate-pulse opacity-20"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-cyan-50 rounded-full blur-3xl animate-pulse opacity-20" style={{ animationDelay: '1s' }}></div>
       </div>
 
       {/* Floating Elements */}
@@ -95,13 +95,13 @@ const HiringJourneyFlow = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-violet-100 rounded-full mb-6">
-            <Zap className="w-4 h-4 text-purple-600" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-full mb-6">
+            <Zap className="w-4 h-4 text-blue-600" />
             <span className="text-sm font-semibold text-gray-700">Streamlined Hiring Process</span>
           </div>
           <h2 className="text-2xl md:text-5xl font-bold text-gray-800 mb-4">
             Your Journey to Finding the 
-            <span className="bg-gradient-to-r from-purple-600 via-violet-600 to-purple-700 bg-clip-text text-transparent block mt-2">
+            <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent block mt-2">
               Perfect Flexpert
             </span>
           </h2>
@@ -113,9 +113,9 @@ const HiringJourneyFlow = () => {
         {/* Journey Flow */}
         <div className="relative">
           {/* Connection Line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-200 via-violet-200  to-purple-200 transform -translate-y-1/2 z-0">
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-cyan-200  to-blue-200 transform -translate-y-1/2 z-0">
             <div 
-              className="h-full bg-gradient-to-r from-purple-500 via-violet-500  to-purple-600 transition-all duration-1000 ease-out rounded-full"
+              className="h-full bg-gradient-to-r from-blue-500 via-cyan-500  to-blue-600 transition-all duration-1000 ease-out rounded-full"
               style={{ width: `${((activeStep + 1) / 4) * 100}%` }}
             ></div>
           </div>
