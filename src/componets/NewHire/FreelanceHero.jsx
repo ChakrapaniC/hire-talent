@@ -43,81 +43,81 @@ const FreelancerHero = () => {
   const freelancers = [
     {
       id: 1,
-      name: "Sarah Chen",
+      name: "Priya Sharma",
       designation: "Senior UI/UX Designer",
       rating: 5.0,
       projects: 127,
-      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-talent/anil-sharma-NvzyEHQwbqk-unsplash.jpg",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Indian_Professionals/Indian_prof_lady_1.jpg",
       color: "from-blue-300 to-blue-400",
       expertise: "Product Design"
     },
     {
       id: 2,
-      name: "Jatin Singh",
+      name: "Arjun Patel",
       designation: "Lead Full Stack Developer",
       rating: 4.9,
       projects: 89,
-      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-talent/ofspace-llc-mIgJpximElQ-unsplash.jpg",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Indian_Professionals/Indian_prof_man_1.jpg",
       color: "from-cyan-300 to-cyan-400",
       expertise: "React & Node.js"
     },
     {
       id: 3,
-      name: "Elena Rodriguez",
+      name: "Kavya Reddy",
       designation: "Growth Marketing Strategist",
       rating: 5.0,
       projects: 156,
-      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_2.jpg",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Indian_Professionals/Indian_prof_lady_2.jpg",
       color: "from-blue-300 to-cyan-400",
       expertise: "Digital Growth"
     },
     {
       id: 4,
-      name: "David Kim",
+      name: "Rajesh Kumar",
       designation: "Senior Data Scientist",
       rating: 4.8,
       projects: 173,
-      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_1.jpg",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Indian_Professionals/Indian_prof_man_2.jpg",
       color: "from-cyan-300 to-blue-400",
       expertise: "ML & Analytics"
     },
     {
       id: 5,
-      name: "Priya Sharma",
+      name: "Ananya Gupta",
       designation: "Brand Content Strategist",
       rating: 4.9,
       projects: 112,
-      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Assets/hire-talent/mausam-majhi-VUGBcg9ZHBI-unsplash.jpg",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Indian_Professionals/Indian_prof_lady_3.jpg",
       color: "from-blue-300 to-blue-500",
       expertise: "Content Strategy"
     },
     {
       id: 6,
-      name: "Alex Thompson",
+      name: "Vikram Singh",
       designation: "Creative Design Director",
       rating: 5.0,
       projects: 104,
-      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_3.jpg",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Indian_Professionals/Indian_prof_man_3.jpg",
       color: "from-cyan-300 to-cyan-500",
       expertise: "Brand Design"
     },
     {
       id: 7,
-      name: "Lisa Wang",
+      name: "Amit Joshi",
       designation: "DevOps Architect",
       rating: 4.8,
       projects: 67,
-      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professionals_images/Professional_4.jpg",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Indian_Professionals/Indian_prof_man_4.jpg",
       color: "from-blue-300 to-cyan-500",
       expertise: "Cloud Infrastructure"
     },
     {
       id: 8,
-      name: "James Mitchell",
+      name: "Rohit Agarwal",
       designation: "Mobile App Developer",
       rating: 4.9,
       projects: 98,
-      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Professional_photos/Professional_8.jpg",
+      image: "https://prolegion-assets.s3.ap-south-1.amazonaws.com/Indian_Professionals/Indian_prof_man_5.jpg",
       color: "from-cyan-300 to-blue-500",
       expertise: "iOS & Android"
     }

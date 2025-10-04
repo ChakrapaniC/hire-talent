@@ -109,43 +109,9 @@ const ContactPage = () => {
         </div>
       </div>
 
-        {/* Banner Section */}
-        <div className="relative mt-8 mb-8 bg-gradient-to-r from-blue-800 to-cyan-900 py-16 px-4 overflow-hidden">
-        {/* Decorative Background Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full"></div>
-          <div className="absolute top-20 right-20 w-16 h-16 bg-white rounded-full"></div>
-          <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-white rounded-full"></div>
-          <div className="absolute bottom-20 right-1/3 w-14 h-14 bg-white rounded-full"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white rounded-full"></div>
-        </div>
-        
-        <div className="relative max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            We connect you with the Top 3% of Freelance
-          </h2>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Talent All Over The World
-          </h2>
-        </div>
-      </div>
+       
 
-      {/* Community Section */}
-      <div className="bg-white py-12 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <p className="text-lg md:text-xl text-gray-800 font-semibold">
-              Join our community
-            </p>
-            <button 
-              onClick={() => router.push('/enquiry')}
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 cursor-pointer"
-            >
-              Hire Top Talent
-            </button>
-          </div>
-        </div>
-      </div>
+     
     </div>
   );
 };

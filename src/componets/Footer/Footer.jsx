@@ -6,30 +6,29 @@ const Footer = () => {
   const router = useRouter();
 
   const jobCategories = {
-    'Developers': [
-      'Software Developer', 'Data Scientist', 'DevOps Engineer', 'QA Engineer',
-      'Full-stack Developer', 'Front-end Developer', 'Back-end Developer', 'Mobile App Developer',
-      'AI Engineer', 'Machine Learning Engineer', 'Cloud Engineer', 'Security Engineer'
+    'SAP Consultants': [
+      'SAP FICO Consultant', 'SAP MM Consultant', 'SAP SD Consultant', 'SAP S/4HANA Consultant',
+      'SAP Basis Consultant', 'SAP ABAP Developer', 'SAP BI Consultant', 'SAP Fiori Consultant'
+    ],
+    'Oracle Consultants': [
+      'Oracle EBS Consultant', 'Oracle Cloud Consultant', 'Oracle Fusion Consultant', 'Oracle Database Consultant',
+      'Oracle BI Consultant', 'Oracle APEX Developer', 'Oracle PL/SQL Developer', 'Oracle OBIEE Consultant'
+    ],
+    'Salesforce': [
+      'Salesforce Admin', 'Salesforce Developer', 'Salesforce Architect', 'Salesforce Marketing Cloud',
+      'Salesforce Service Cloud', 'Salesforce CPQ Consultant', 'Salesforce Lightning Developer', 'Salesforce Apex Developer'
     ],
     'ERP Consultants': [
-      'SAP Consultant', 'Oracle Consultant', 'Microsoft Dynamics Consultant', 'NetSuite Consultant',
-      'Salesforce Consultant', 'Workday Consultant', 'ServiceNow Consultant', 'Epicor Consultant'
+      'Microsoft Dynamics Consultant', 'NetSuite Consultant', 'Workday Consultant', 'ServiceNow Consultant',
+      'Epicor Consultant', 'Infor Consultant', 'Sage Consultant', 'Acumatica Consultant'
     ],
     'Enterprise Architects': [
       'Solution Architect', 'Technical Architect', 'Data Architect', 'Security Architect',
       'Cloud Architect', 'Integration Architect', 'Application Architect', 'Infrastructure Architect'
     ],
-    'Designers': [
-      'UI/UX Designer', 'Graphic Designer', 'Web Designer', 'Mobile App Designer',
-      'Product Designer', 'Interaction Designer', 'Visual Designer', 'Brand Designer'
-    ],
-    'Management Consultants': [
-      'Strategy Consultant', 'Operations Consultant', 'Digital Transformation Consultant', 'Change Management Consultant',
-      'Financial Consultant', 'HR Consultant', 'IT Strategy Consultant', 'Process Improvement Consultant'
-    ],
-    'Marketing Experts': [
-      'Digital Marketing Manager', 'SEO Specialist', 'SEM Specialist', 'Social Media Manager',
-      'Content Marketing Manager', 'Email Marketing Specialist', 'PPC Specialist', 'Marketing Automation Specialist'
+    'Developers': [
+      'Software Developer', 'Data Scientist', 'DevOps Engineer', 'QA Engineer',
+      'Full-stack Developer', 'Front-end Developer', 'Back-end Developer', 'Mobile App Developer'
     ]
   };
 

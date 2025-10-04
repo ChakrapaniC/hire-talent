@@ -1,215 +1,177 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { Search, Users, MessageCircle, CheckCircle, Star, Clock, ArrowRight, Zap, Shield, Trophy } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import React, { useState, useEffect, useRef } from 'react';
 
 const HiringJourneyFlow = () => {
-  const [activeStep, setActiveStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % 4);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const componentRef = useRef(null);
+  const router = useRouter();
 
   const steps = [
     {
-      id: 1,
-      title: "Discover Talent",
-      subtitle: "Browse & Filter",
-      description: "Search through our curated pool of pre-vetted professionals. Filter by skills, experience, and availability.",
-      icon: <Search className="w-8 h-8" />,
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-100",
-      stats: "50K+ Experts",
-      features: ["AI-Powered Matching", "Skill Verification", "Portfolio Reviews"]
+      number: 1,
+      title: "Submit Talent Inquiry",
+      description: "Tell us about your project requirements and we'll match you with the perfect talent for your needs."
     },
     {
-      id: 2,
-      title: "Connect Instantly",
-      subtitle: "Chat & Interview",
-      description: "Connect with candidates through our platform. Conduct video interviews and assess their expertise.",
-      icon: <MessageCircle className="w-8 h-8" />,
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-100",
-      stats: "<2h Response",
-      features: ["Video Interviews", "Real-time Chat", "Proposal System"]
+      number: 2,
+      title: "Talk to One of Our Industry Experts",
+      description: "An expert on our team will work with you to understand your goals, technical needs, and team dynamics."
     },
     {
-      id: 3,
-      title: "Secure Hiring",
-      subtitle: "Contract & Onboard",
-      description: "Finalize terms with smart contracts. Seamless onboarding with project milestones and secure payments.",
-      icon: <Shield className="w-8 h-8" />,
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-100",
-      stats: "100% Secure",
-      features: ["Smart Contracts", "Milestone Payments", "Legal Protection"]
+      number: 3,
+      title: "Work With Hand-Selected Talent",
+      description: "Within days, we'll introduce you to the right talent for your project. Average time to match is under 24 hours."
     },
     {
-      id: 4,
-      title: "Deliver Excellence",
-      subtitle: "Track & Complete",
-      description: "Monitor progress with real-time updates. Quality assurance and seamless project completion.",
-      icon: <Trophy className="w-8 h-8" />,
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-100",
-      stats: "98.5% Success",
-      features: ["Progress Tracking", "Quality Assurance", "Performance Analytics"]
+      number: 4,
+      title: "The Right Fit, Guaranteed",
+      description: "Work with your new team member on a trial basis (pay only if satisfied), ensuring you hire the right people for the job."
     }
   ];
 
-  const floatingElements = [
-    { icon: <Star className="w-4 h-4" />, delay: 0, color: "text-yellow-500" },
-    { icon: <Zap className="w-4 h-4" />, delay: 1000, color: "text-blue-500" },
-    { icon: <CheckCircle className="w-4 h-4" />, delay: 2000, color: "text-green-500" },
-    { icon: <Clock className="w-4 h-4" />, delay: 3000, color: "text-purple-500" },
-  ];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        observer.unobserve(componentRef.current);
+      }
+    };
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (isVisible) {
+      setCurrentStep(0);
+      const timer = setInterval(() => {
+        setCurrentStep((prev) => {
+          if (prev < steps.length - 1) {
+            return prev + 1;
+          }
+          return prev;
+        });
+      }, 800);
+
+      return () => clearInterval(timer);
+    }
+  }, [isVisible]);
 
   return (
-    <div className="py-20 px-6 lg:px-8 bg-blue-25 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-50 rounded-full blur-3xl animate-pulse opacity-20"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-cyan-50 rounded-full blur-3xl animate-pulse opacity-20" style={{ animationDelay: '1s' }}></div>
+    <div ref={componentRef} className="w-full max-w-[87.5%] mx-auto pb-10 pt-12 bg-white">
+      <div className="text-center mb-16">
+        <h1 className="text-2xl md:text-4xl font-bold text-gray-700 mb-4">Hiring Made Easy</h1>
       </div>
 
-      {/* Floating Elements */}
-      {/* {floatingElements.map((element, index) => (
-        <div
-          key={index}
-          className={`absolute ${element.color} animate-bounce`}
-          style={{
-            top: `${20 + Math.random() * 60}%`,
-            left: `${10 + Math.random() * 80}%`,
-            animationDelay: `${element.delay}ms`,
-            animationDuration: '3s'
-          }}
-        >
-          {element.icon}
-        </div>
-      ))} */}
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-full mb-6">
-            <Zap className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-semibold text-gray-700">Streamlined Hiring Process</span>
-          </div>
-          <h2 className="text-2xl md:text-5xl font-bold text-gray-800 mb-4">
-            Your Journey to Finding the 
-            <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent block mt-2">
-              Perfect Flexpert
-            </span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            From discovery to delivery, experience a seamless hiring process designed for modern businesses
-          </p>
-        </div>
-
-        {/* Journey Flow */}
+      <div className="hidden lg:block">
         <div className="relative">
-          {/* Connection Line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-cyan-200  to-blue-200 transform -translate-y-1/2 z-0">
-            <div 
-              className="h-full bg-gradient-to-r from-blue-500 via-cyan-500  to-blue-600 transition-all duration-1000 ease-out rounded-full"
-              style={{ width: `${((activeStep + 1) / 4) * 100}%` }}
-            ></div>
-          </div>
-
-          {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          <div className="flex justify-between items-start relative">
             {steps.map((step, index) => (
-              <div
-                key={step.id}
-                className={`relative group transition-all duration-700 transform ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                {/* Step Card */}
-                <div className={`${step.bgColor} rounded-3xl p-6 h-full border-2 transition-all duration-500 hover:shadow-2xl hover:scale-105 ${
-                  activeStep === index 
-                    ? 'border-current shadow-2xl scale-105' 
-                    : 'border-transparent hover:border-gray-200'
+              <div key={step.number} className="flex flex-col items-center w-64 relative z-10">
+                {/* Step Circle */}
+                <div className={`w-16 h-16 rounded-full border-2 flex items-center justify-center text-xl font-semibold transition-all duration-500 ease-in-out ${
+                  index <= currentStep 
+                    ? 'border-blue-500 bg-blue-50 text-blue-600 transform scale-105' 
+                    : 'border-gray-300 bg-white text-gray-400 transform scale-95'
                 }`}>
-                  
-                  {/* Step Number & Icon */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-lg transition-transform duration-300 group-hover:scale-110`}>
-                      {step.icon}
-                    </div>
-                    <div className={`text-3xl font-bold opacity-20 transition-opacity duration-300 ${
-                      activeStep === index ? 'opacity-40' : 'group-hover:opacity-30'
-                    }`}>
-                      0{index + 1}
-                    </div>
+                  {step.number}
+                </div>
+                
+                <div className={`text-center mt-8 transition-all duration-500 ease-in-out ${
+                  index <= currentStep ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
+                }`}>
+                  <div className="min-h-[3rem] flex items-center justify-center mb-4">
+                    <h3 className="text-xl font-semibold text-gray-700 leading-tight">{step.title}</h3>
                   </div>
-
-                  {/* Content */}
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-1">
-                        {step.title}
-                      </h3>
-                      <p className={`text-sm font-medium bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
-                        {step.subtitle}
-                      </p>
-                    </div>
-
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                  <div className="min-h-[5rem] flex items-start justify-center">
+                    <p className="text-gray-500 text-base leading-relaxed max-w-full">
                       {step.description}
                     </p>
-
-                    {/* Stats */}
-                    <div className={`inline-flex items-center px-3 py-1 rounded-full bg-white/70 text-xs font-semibold text-gray-700 border`}>
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${step.color} mr-2`}></div>
-                      {step.stats}
-                    </div>
-
-                    {/* Features */}
-                    <div className="space-y-2 pt-2">
-                      {step.features.map((feature, featureIndex) => (
-                        <div
-                          key={featureIndex}
-                          className="flex items-center text-xs text-gray-600"
-                        >
-                          <CheckCircle className="w-3 h-3 text-green-500 mr-2 flex-shrink-0" />
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
                   </div>
-
-                  {/* Hover Arrow */}
-                  <div className={`absolute -right-2 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg ${
-                    index === 3 ? 'hidden' : ''
-                  }`}>
-                    <ArrowRight className="w-3 h-3 text-white" />
-                  </div>
-
                 </div>
-
-                {/* Mobile Connection Line */}
-                {index < 3 && (
-                  <div className="lg:hidden flex justify-center my-4">
-                    <div className="w-0.5 h-8 bg-gradient-to-b from-gray-300 to-gray-200 relative overflow-hidden">
-                      <div 
-                        className={`absolute top-0 left-0 w-full bg-gradient-to-b ${step.color} transition-all duration-500`}
-                        style={{ 
-                          height: activeStep > index ? '100%' : '0%',
-                          transitionDelay: `${index * 300}ms`
-                        }}
-                      ></div>
-                    </div>
-                  </div>
-                )}
               </div>
             ))}
           </div>
+          
+          <div className="absolute top-8 left-0 right-0">
+            {[0, 1, 2].map((index) => (
+              <div 
+                key={index} 
+                className="absolute flex items-center"
+                style={{
+                  left: `${12.5 + (index * 25)}%`,
+                  width: '20%',
+                  height: '2px'
+                }}
+              >
+                <div className={`h-0.5 bg-blue-500 transition-all duration-500 ease-in-out ${
+                  index < currentStep ? 'w-full opacity-100' : 'w-0 opacity-0'
+                }`} 
+                style={{ transformOrigin: 'left' }}></div>
+                <div className={`transition-all duration-500 ease-in-out ${
+                  index < currentStep ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-75'
+                }`}
+                style={{
+                  width: '0',
+                  height: '0',
+                  borderLeft: '8px solid rgb(59 130 246)',
+                  borderTop: '5px solid transparent',
+                  borderBottom: '5px solid transparent',
+                  marginLeft: '-1px'
+                }}></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Layout */}
+      <div className="lg:hidden">
+        <div className="space-y-8">
+          {steps.map((step, index) => (
+            <div key={step.number} className="flex flex-col items-center">
+              <div className={`w-16 h-16 rounded-full border-2 flex items-center justify-center text-xl font-semibold transition-all duration-500 ease-in-out ${
+                index <= currentStep 
+                  ? 'border-blue-500 bg-blue-50 text-blue-600' 
+                  : 'border-gray-300 bg-white text-gray-400'
+              }`}>
+                {step.number}
+              </div>
+              
+              <div className={`text-center mt-6 transition-all duration-500 ease-in-out ${
+                index <= currentStep ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
+              }`}>
+                <div className="min-h-[3rem] flex items-center justify-center mb-4">
+                  <h3 className="text-xl font-semibold text-gray-700 leading-tight">{step.title}</h3>
+                </div>
+                <div className="min-h-[5rem] flex items-start justify-center">
+                  <p className="text-gray-500 text-base leading-relaxed max-w-full">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+              
+              {index < steps.length - 1 && (
+                <div className={`mt-6 w-px h-12 bg-blue-500 transition-all duration-500 ease-in-out ${
+                  index < currentStep ? 'opacity-100 transform scale-y-100' : 'opacity-0 transform scale-y-0'
+                }`}
+                style={{ transformOrigin: 'top' }}></div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>

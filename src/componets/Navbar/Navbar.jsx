@@ -6,25 +6,39 @@ import { useRouter } from 'next/navigation';
 const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState('Developers');
+  const [activeCategory, setActiveCategory] = useState('SAP Consultants');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
   const router = useRouter();
 
   const dropdownData = {
-    'Developers': [
-      'Software Developer', 'Data Scientist', 'DevOps Engineer', 'QA Engineer',
-      'Full-stack Developer', 'Front-end Developer', 'Back-end Developer', 'Mobile App Developer',
-      'AI Engineer', 'Machine Learning Engineer', 'Cloud Engineer', 'Security Engineer',
-      'Blockchain Developer', 'Game Developer', 'AR/VR Developer', 'IoT Developer',
-      'Database Developer', 'API Developer', 'System Administrator', 'Technical Lead'
+    'SAP Consultants': [
+      'SAP FICO Consultant', 'SAP MM Consultant', 'SAP SD Consultant', 'SAP PP Consultant',
+      'SAP WM Consultant', 'SAP HR/HCM Consultant', 'SAP BW Consultant', 'SAP BI Consultant',
+      'SAP ABAP Developer', 'SAP Basis Consultant', 'SAP Security Consultant', 'SAP GRC Consultant',
+      'SAP SuccessFactors Consultant', 'SAP Ariba Consultant', 'SAP Concur Consultant', 'SAP Hybris Consultant',
+      'SAP Cloud Platform Consultant', 'SAP S/4HANA Consultant', 'SAP Fiori Consultant', 'SAP Integration Consultant'
+    ],
+    'Oracle Consultants': [
+      'Oracle EBS Consultant', 'Oracle Cloud Consultant', 'Oracle Financial Consultant', 'Oracle Supply Chain Consultant',
+      'Oracle HCM Consultant', 'Oracle CX Consultant', 'Oracle Database Consultant', 'Oracle Fusion Consultant',
+      'Oracle BI Consultant', 'Oracle APEX Developer', 'Oracle PL/SQL Developer', 'Oracle Forms Developer',
+      'Oracle Reports Developer', 'Oracle Workflow Developer', 'Oracle OBIEE Consultant', 'Oracle Hyperion Consultant',
+      'Oracle GoldenGate Consultant', 'Oracle Data Integrator', 'Oracle WebLogic Consultant', 'Oracle Identity Manager'
+    ],
+    'Salesforce': [
+      'Salesforce Admin', 'Salesforce Developer', 'Salesforce Consultant', 'Salesforce Architect',
+      'Salesforce Marketing Cloud', 'Salesforce Service Cloud', 'Salesforce Commerce Cloud', 'Salesforce Pardot',
+      'Salesforce CPQ Consultant', 'Salesforce Field Service', 'Salesforce Einstein Analytics', 'Salesforce Integration Specialist',
+      'Salesforce Lightning Developer', 'Salesforce Apex Developer', 'Salesforce LWC Developer', 'Salesforce Flow Developer',
+      'Salesforce DevOps Engineer', 'Salesforce Release Manager', 'Salesforce Data Migration Specialist', 'Salesforce Security Specialist'
     ],
     'ERP Consultants': [
-      'SAP Consultant', 'Oracle Consultant', 'Microsoft Dynamics Consultant', 'NetSuite Consultant',
-      'Salesforce Consultant', 'Workday Consultant', 'ServiceNow Consultant', 'Epicor Consultant',
-      'Infor Consultant', 'Sage Consultant', 'Acumatica Consultant', 'Plex Consultant',
-      'IFS Consultant', 'Unit4 Consultant', 'Deltek Consultant', 'IFS ERP Consultant',
-      'JD Edwards Consultant', 'PeopleSoft Consultant', 'Baan Consultant', 'QAD Consultant'
+      'Microsoft Dynamics Consultant', 'NetSuite Consultant', 'Workday Consultant', 'ServiceNow Consultant',
+      'Epicor Consultant', 'Infor Consultant', 'Sage Consultant', 'Acumatica Consultant',
+      'Plex Consultant', 'IFS Consultant', 'Unit4 Consultant', 'Deltek Consultant',
+      'JD Edwards Consultant', 'PeopleSoft Consultant', 'Baan Consultant', 'QAD Consultant',
+      'Syspro Consultant', 'Exact Consultant', 'Xero Consultant', 'QuickBooks Consultant'
     ],
     'Enterprise Architects': [
       'Solution Architect', 'Technical Architect', 'Data Architect', 'Security Architect',
@@ -32,6 +46,13 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
       'Business Architect', 'Information Architect', 'Network Architect', 'Mobile Architect',
       'API Architect', 'Microservices Architect', 'DevOps Architect', 'AI/ML Architect',
       'Blockchain Architect', 'IoT Architect', 'Digital Transformation Architect', 'Enterprise Integration Architect'
+    ],
+    'Developers': [
+      'Software Developer', 'Data Scientist', 'DevOps Engineer', 'QA Engineer',
+      'Full-stack Developer', 'Front-end Developer', 'Back-end Developer', 'Mobile App Developer',
+      'AI Engineer', 'Machine Learning Engineer', 'Cloud Engineer', 'Security Engineer',
+      'Blockchain Developer', 'Game Developer', 'AR/VR Developer', 'IoT Developer',
+      'Database Developer', 'API Developer', 'System Administrator', 'Technical Lead'
     ],
     'Designers': [
       'UI/UX Designer', 'Graphic Designer', 'Web Designer', 'Mobile App Designer',
@@ -67,7 +88,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
 
   useEffect(() => {
     setIsDropdownOpen(false);
-    setActiveCategory('Developers');
+    setActiveCategory('SAP Consultants');
   }, []);
 
   useEffect(() => {
@@ -220,7 +241,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
             <button onClick={()=> router.push('/enquiry')} className="group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
               <span className="relative z-10 flex items-center space-x-2">
                 <MessageCircle className="w-4 h-4" />
-                <span>Enquiry</span>
+                <span>Hire Talent</span>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>

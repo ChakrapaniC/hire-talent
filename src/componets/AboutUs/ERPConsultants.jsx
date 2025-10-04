@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Building2, BarChart3, Users, Settings, Shield, Zap, Award, CheckCircle, Globe, Target } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import OurPartners from '../OurPartners/OurPartners';
 
 const ERPConsultants = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -77,7 +78,7 @@ const ERPConsultants = () => {
 
 
   return (
-    <div className="py-20 px-6 lg:px-8 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 relative overflow-hidden">
+    <div className="py-20 px-6 lg:px-0 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-20 animate-pulse"></div>
@@ -200,6 +201,14 @@ const ERPConsultants = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Our Partners Section */}
+      <div className='mt-12'>
+      <OurPartners 
+        backgroundClass="bg-transparent" 
+        hideFade={true} 
+      />
       </div>
     </div>
   );

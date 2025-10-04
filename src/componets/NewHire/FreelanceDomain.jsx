@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { Palette, Code, PenTool, Type, Briefcase, Megaphone } from "lucide-react";
+import { Palette, Code, PenTool, Type, Briefcase, Megaphone, BarChart3 } from "lucide-react";
 
 const FreelancerDomains = () => {
     const domains = [
@@ -51,6 +51,31 @@ const FreelancerDomains = () => {
             bgColor: "bg-blue-100",
             icon: <Megaphone className="w-8 h-8" />,
             services: ["SEO", "Social Media", "Email Marketing", "PPC Ads"]
+        },
+        {
+            id: 7,
+            title: "Data Analytics",
+            description: "Transforms data into actionable insights for business growth.",
+            bgColor: "bg-blue-100",
+            icon: <BarChart3 className="w-8 h-8" />,
+            services: ["Data Visualization", "Business Intelligence", "Statistical Analysis", "Reporting"]
+        },
+        {
+            id: 8,
+            title: "Project Management",
+            description: "Delivers projects on time and within budget with expert planning.",
+            bgColor: "bg-blue-100",
+            icon: <Briefcase className="w-8 h-8" />,
+            services: ["Agile", "Scrum", "Timeline Planning", "Resource Management"]
+        },
+        {
+            id: 9,
+            title: "Plus Thousands More Skills",
+            description: "Whatever skill or specialization your business requires, we have the top talent to meet your needs.",
+            bgColor: "bg-gray-100",
+            icon: null,
+            services: [],
+            noHover: true
         }
     ];
 
@@ -68,50 +93,64 @@ const FreelancerDomains = () => {
                     </p>
                 </div>
 
-                {/* Domain Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {domains.map((domain) => (
+                {/* Domain Cards Grid - Boxy Connected Style */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border border-gray-300 rounded-lg shadow-lg overflow-hidden">
+                    {domains.map((domain, index) => (
                         <div
                             key={domain.id}
-                            className={`${domain.bgColor} rounded-3xl py-8 px-4 hover:shadow-lg hover:scale-[1.02] group relative overflow-hidden flex flex-col h-full hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500`}
+                            className={`${domain.bgColor} border-r border-b border-gray-300 p-6 ${
+                                domain.noHover ? '' : 'hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500'
+                            } group relative overflow-hidden flex flex-col h-full ${
+                                index % 3 === 2 ? 'border-r-0' : ''
+                            } ${
+                                index >= domains.length - 3 ? 'border-b-0' : ''
+                            }`}
                         >
                             {/* Card Content */}
-                            <div className="relative z-10 flex flex-col flex-grow">
-                                <div className="flex items-center gap-2 mb-4 w-full">
-                                    <div className="group-hover:text-white text-blue-600">
-                                        {domain.icon}
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-gray-800 group-hover:text-white">
+                            <div className={`relative z-10 flex flex-col flex-grow ${domain.noHover ? 'justify-center items-center text-center' : ''}`}>
+                                <div className={`flex items-center gap-2 mb-4 w-full ${domain.noHover ? 'justify-center' : ''}`}>
+                                    {domain.icon && (
+                                        <div className="group-hover:text-white text-blue-600">
+                                            {domain.icon}
+                                        </div>
+                                    )}
+                                    <h3 className={`text-xl font-bold ${domain.noHover ? 'text-gray-800' : 'text-gray-800 group-hover:text-white'}`}>
                                         {domain.title}
                                     </h3>
                                 </div>
 
                                 {/* Description */}
-                                <p className="text-gray-700 text-base mb-6 leading-relaxed group-hover:text-white">
+                                <p className={`text-base mb-6 leading-relaxed ${domain.noHover ? 'text-gray-700' : 'text-gray-700 group-hover:text-white'}`}>
                                     {domain.description}
                                 </p>
 
-                                {/* Services Tags */}
-                                <div className="flex flex-wrap gap-2 mb-6">
-                                    {domain.services.map((service, index) => (
-                                        <span
-                                            key={index}
-                                            className="px-4 py-2 bg-white/70 backdrop-blur-sm text-gray-800 text-sm font-medium rounded-full border border-white/40"
-                                        >
-                                            {service}
-                                        </span>
-                                    ))}
-                                </div>
+                                {/* Services Tags - Only show if there are services */}
+                                {domain.services.length > 0 && (
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {domain.services.map((service, index) => (
+                                            <span
+                                                key={index}
+                                                className="px-3 py-1 bg-white/70 backdrop-blur-sm text-gray-800 text-xs font-medium rounded-full border border-white/40"
+                                            >
+                                                {service}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
 
                             </div>
 
-                            {/* Subtle Background Pattern */}
-                            <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                                <div className="w-full h-full rounded-full bg-white/20 group-hover:scale-110 transition-transform duration-700"></div>
-                            </div>
-                            <div className="absolute bottom-0 left-0 w-20 h-20 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                                <div className="w-full h-full rounded-full bg-white/30 group-hover:scale-125 transition-transform duration-700"></div>
-                            </div>
+                            {/* Subtle Background Pattern - Only for cards with hover */}
+                            {!domain.noHover && (
+                                <>
+                                    <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                                        <div className="w-full h-full rounded-full bg-white/20 group-hover:scale-110 transition-transform duration-700"></div>
+                                    </div>
+                                    <div className="absolute bottom-0 left-0 w-20 h-20 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                                        <div className="w-full h-full rounded-full bg-white/30 group-hover:scale-125 transition-transform duration-700"></div>
+                                    </div>
+                                </>
+                            )}
                         </div>
                     ))}
                 </div>

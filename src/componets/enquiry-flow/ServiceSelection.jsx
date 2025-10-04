@@ -3,14 +3,29 @@ import { ChevronRight } from "lucide-react";
 const ServiceSelection = ({ formData, updateFormData }) => {
   const services = [
     {
+      id: "sap-consultants",
+      title: "SAP Consultants",
+      description: "SAP FICO, MM, SD, PP, S/4HANA, Fiori experts...",
+    },
+    {
+      id: "oracle-consultants",
+      title: "Oracle Consultants",
+      description: "Oracle EBS, Cloud, Fusion, Database, BI experts...",
+    },
+    {
+      id: "salesforce",
+      title: "Salesforce",
+      description: "Salesforce Admin, Developer, Architect, Marketing Cloud...",
+    },
+    {
       id: "erp-consultants",
       title: "ERP Consultants",
-      description: "SAP, Salesforce, Oracle, NetSuite experts...",
+      description: "Microsoft Dynamics, NetSuite, Workday, ServiceNow...",
     },
     {
       id: "enterprise-architects",
       title: "Enterprise Architects",
-      description: "Seasoned enterprise architects who design and align...",
+      description: "Solution, Technical, Data, Security, Cloud Architects...",
     },
     {
       id: "developers",

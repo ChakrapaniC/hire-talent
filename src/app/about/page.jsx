@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import Developers from '@/componets/AboutUs/Developers';
-import Designers from '@/componets/AboutUs/Designers';
-import MarketingExperts from '@/componets/AboutUs/MarketingExperts';
+import SAPConsultants from '@/componets/AboutUs/SAPConsultants';
+import OracleConsultants from '@/componets/AboutUs/OracleConsultants';
+import Salesforce from '@/componets/AboutUs/Salesforce';
 import ERPConsultants from '@/componets/AboutUs/ERPConsultants';
 
 const AboutUs = () => {
@@ -11,9 +11,9 @@ const AboutUs = () => {
   const [isUserScrolling, setIsUserScrolling] = useState(false);
   const [scrollTimeout, setScrollTimeout] = useState(null);
   
-  const developersRef = useRef(null);
-  const designersRef = useRef(null);
-  const marketingRef = useRef(null);
+  const sapRef = useRef(null);
+  const oracleRef = useRef(null);
+  const salesforceRef = useRef(null);
   const erpRef = useRef(null);
   const isManualScrollRef = useRef(false);
   const lastUserInteractionRef = useRef(0);
@@ -53,9 +53,9 @@ const AboutUs = () => {
 
   // Get section refs array
   const getSectionRefs = useCallback(() => [
-    { ref: developersRef, index: 0 },
-    { ref: designersRef, index: 1 },
-    { ref: marketingRef, index: 2 },
+    { ref: sapRef, index: 0 },
+    { ref: oracleRef, index: 1 },
+    { ref: salesforceRef, index: 2 },
     { ref: erpRef, index: 3 }
   ], []);
 
@@ -246,7 +246,7 @@ const AboutUs = () => {
                     : 'text-gray-600 border-transparent hover:text-blue-500'
                 }`}
               >
-                Developers
+                SAP Consultants
               </button>
               <button
                 onClick={() => handleTabClick(1)}
@@ -256,7 +256,7 @@ const AboutUs = () => {
                     : 'text-gray-600 border-transparent hover:text-pink-500'
                 }`}
               >
-                Designers
+                Oracle Consultants
               </button>
               <button
                 onClick={() => handleTabClick(2)}
@@ -266,7 +266,7 @@ const AboutUs = () => {
                     : 'text-gray-600 border-transparent hover:text-purple-500'
                 }`}
               >
-                Marketing Experts
+                Salesforce
               </button>
               <button
                 onClick={() => handleTabClick(3)}
@@ -285,19 +285,19 @@ const AboutUs = () => {
 
       {/* Tab Content */}
       <div className="bg-blue-25">
-        {/* Tab 1: Developers */}
-        <div ref={developersRef}>
-          <Developers />
+        {/* Tab 1: SAP Consultants */}
+        <div ref={sapRef}>
+          <SAPConsultants />
         </div>
 
-        {/* Tab 2: Designers */}
-        <div ref={designersRef}>
-          <Designers />
+        {/* Tab 2: Oracle Consultants */}
+        <div ref={oracleRef}>
+          <OracleConsultants />
         </div>
 
-        {/* Tab 3: Marketing Experts */}
-        <div ref={marketingRef}>
-          <MarketingExperts />
+        {/* Tab 3: Salesforce */}
+        <div ref={salesforceRef}>
+          <Salesforce />
         </div>
 
         {/* Tab 4: ERP Consultants */}
@@ -305,6 +305,8 @@ const AboutUs = () => {
           <ERPConsultants />
         </div>
       </div>
+
+      
     </div>
   );
 };
