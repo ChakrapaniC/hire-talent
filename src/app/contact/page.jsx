@@ -35,8 +35,12 @@ const ContactPage = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'User-Agent': 'Mozilla/5.0 (compatible; HireTalent/1.0)',
         },
         body: JSON.stringify(payload),
+        mode: 'cors',
+        credentials: 'omit',
       });
 
       if (response.ok) {
@@ -52,11 +56,20 @@ const ContactPage = () => {
           router.push('/');
         }, 1000);
       } else {
+        console.error('API Response Error:', response.status, response.statusText);
         alert('Error submitting contact form. Please try again.');
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert('Network error. Please try again.');
+      console.error('Network Error Details:', error);
+      
+      // More specific error handling for mobile devices
+      if (error.name === 'TypeError' && error.message.includes('fetch')) {
+        alert('Network connection error. Please check your internet connection and try again.');
+      } else if (error.name === 'AbortError') {
+        alert('Request was cancelled. Please try again.');
+      } else {
+        alert('Network error. Please try again.');
+      }
     }
   };
 

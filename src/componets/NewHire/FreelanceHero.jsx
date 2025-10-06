@@ -5,8 +5,20 @@ import { useRouter } from 'next/navigation';
 const FreelancerHero = () => {
   const router = useRouter();
   const [visibleTooltipIndex, setVisibleTooltipIndex] = useState(-1);
+  const [isMobile, setIsMobile] = useState(false);
   const animationRef = useRef(null);
   const startTimeRef = useRef(Date.now());
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const updateVisibleTooltip = () => {
@@ -18,12 +30,20 @@ const FreelancerHero = () => {
       for (let i = 0; i < 8; i++) {
         const baseAngle = i * 45; 
         const currentAngle = (baseAngle + rotationDegrees) % 360;
-        
         const screenAngle = (currentAngle + 90) % 360;
         
-        if (screenAngle >= 240 && screenAngle < 270) {
-          tooltipIndex = i;
-          break; 
+        if (isMobile) {
+          // Mobile: Show tooltip when avatar is at 11-12 o'clock position (330-360 degrees)
+          if (screenAngle >= 330 || screenAngle < 30) {
+            tooltipIndex = i;
+            break;
+          }
+        } else {
+          // Desktop: Show tooltip at 8-9 o'clock position (240-270 degrees)
+          if (screenAngle >= 240 && screenAngle < 270) {
+            tooltipIndex = i;
+            break;
+          }
         }
       }
       
@@ -38,7 +58,7 @@ const FreelancerHero = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [isMobile]);
 
   const freelancers = [
     {
@@ -138,12 +158,12 @@ const FreelancerHero = () => {
         backgroundSize: '24px 24px'
       }}></div>
 
-      <div className="relative z-10 container mx-auto px-6 lg:px-8 flex items-center justify-between max-w-[90%]">
-        {/* Enhanced Left Content */}
-        <div className="flex-1 max-w-2xl pr-8">
-          <div className="space-y-10">
+      <div className="relative z-10 container mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between max-w-[90%]">
+        {/* Enhanced Left Content - First on Mobile */}
+        <div className="flex-1 max-w-2xl lg:pr-8 w-full lg:order-1 order-1">
+          <div className="space-y-6 lg:space-y-10">
             {/* Enhanced Heading */}
-            <div className="space-y-2">
+            <div className="space-y-2 text-center lg:text-left">
               <h1 className="text-2xl md:text-[2.7rem] font-bold leading-snug tracking-tight">
                 <p className="text-gray-800">Hire <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">Top Experts</span>
                 </p>
@@ -153,42 +173,42 @@ const FreelancerHero = () => {
                 </span>
               </h1>
               
-              <p className="text-xl lg:text-[1.3rem] text-slate-600 leading-relaxed max-w-xl font-light">
+              <p className="text-base lg:text-[1.3rem] text-slate-600 leading-relaxed max-w-xl font-light mx-auto lg:mx-0">
                 Access a pool of pre-vetted developers, designers, project managers, marketers, and finance experts, ready to jump in when you need them. Whether hourly, monthly, or project-based
               </p>
             </div>
 
             {/* Enhanced Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-0">
+            <div className="grid grid-cols-3 gap-4 lg:gap-8 pt-0">
               <div className="group">
-                <div className="text-2xl md:text-4xl font-bold bg-gradient-to-br from-blue-600 to-blue-700 bg-clip-text text-transparent">
+                <div className="text-xl lg:text-4xl font-bold bg-gradient-to-br from-blue-600 to-blue-700 bg-clip-text text-transparent">
                   50K+
                 </div>
-                <div className="text-slate-600 text-sm font-medium mt-1">Expert Freelancers</div>
+                <div className="text-slate-600 text-xs lg:text-sm font-medium mt-1">Expert Freelancers</div>
                 <div className="w-full h-1 bg-gradient-to-r from-blue-200 to-transparent rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="group">
-                <div className="text-2xl md:text-4xl font-bold bg-gradient-to-br from-cyan-500 to-cyan-600 bg-clip-text text-transparent">
+                <div className="text-xl lg:text-4xl font-bold bg-gradient-to-br from-cyan-500 to-cyan-600 bg-clip-text text-transparent">
                   98.5%
                 </div>
-                <div className="text-slate-600 text-sm font-medium mt-1">Success Rate</div>
+                <div className="text-slate-600 text-xs lg:text-sm font-medium mt-1">Success Rate</div>
                 <div className="w-full h-1 bg-gradient-to-r from-cyan-200 to-transparent rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="group">
-                <div className="text-2xl lg:text-4xl font-bold bg-gradient-to-br from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                <div className="text-xl lg:text-4xl font-bold bg-gradient-to-br from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   &lt;12h
                 </div>
-                <div className="text-slate-600 text-sm font-medium mt-1">Avg. Response</div>
+                <div className="text-slate-600 text-xs lg:text-sm font-medium mt-1">Avg. Response</div>
                 <div className="w-full h-1 bg-gradient-to-r from-blue-200 to-transparent rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             </div>
 
             {/* Enhanced CTA Buttons */}
-            <div className="flex items-center space-x-4 pt-2">
-              <button onClick={() => router.push('/enquiry')} className="group px-10 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer">
+            <div className="flex items-center justify-center lg:justify-start space-x-4 pt-2">
+              <button onClick={() => router.push('/enquiry')} className="group px-6 lg:px-10 py-3 lg:py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer text-sm lg:text-base">
                 <span className="flex items-center space-x-2">
                   <span>Find Elite Talent</span>
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </span>
@@ -197,27 +217,27 @@ const FreelancerHero = () => {
           </div>
         </div>
 
-        {/* Enhanced Rotating Freelancer Circle */}
-        <div className="flex-1 flex justify-end items-center">
-          <div className="relative w-[500px] h-[500px]">
+        {/* Enhanced Rotating Freelancer Circle - Second on Mobile */}
+        <div className="flex-1 flex justify-center lg:justify-end items-center mt-32 lg:mt-0 w-full lg:order-2 order-2">
+          <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[500px] lg:h-[500px]">
             {/* Central Professional Hub */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-blue-800 to-cyan-900 rounded-full shadow-2xl flex items-center justify-center border-4 border-white z-10">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-blue-800 to-cyan-900 rounded-full shadow-2xl flex items-center justify-center border-2 lg:border-4 border-white z-10">
               <div className="text-center">
-                <div className="text-white text-lg font-bold">HIRE</div>
-                <div className="text-blue-300 text-xs font-medium">FLEXPERT</div>
+                <div className="text-white text-xs sm:text-sm lg:text-lg font-bold">HIRE</div>
+                <div className="text-blue-300 text-[10px] sm:text-xs font-medium">FLEXPERT</div>
               </div>
             </div>
 
             {/* Rotating Orbit Rings */}
             <div className="absolute inset-0 border border-black rounded-full"></div>
-            <div className="absolute inset-8 border border-black rounded-full"></div>
-            <div className="absolute inset-16 border border-black rounded-full"></div>
+            <div className="absolute inset-4 lg:inset-8 border border-black rounded-full"></div>
+            <div className="absolute inset-8 lg:inset-16 border border-black rounded-full"></div>
 
             {/* Enhanced Rotating Circle */}
             <div className="absolute inset-0 animate-spin" style={{animationDuration: '40s'}}>
               {freelancers.map((freelancer, index) => {
                 const angle = (index * 45) * (Math.PI / 180);
-                const radius = 190;
+                const radius = isMobile ? 110 : 190;
                 const x = Math.cos(angle) * radius;
                 const y = Math.sin(angle) * radius;
                 
@@ -227,7 +247,7 @@ const FreelancerHero = () => {
                 return (
                   <div
                     key={freelancer.id}
-                    className="absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2"
+                    className="absolute w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 transform -translate-x-1/2 -translate-y-1/2"
                     style={{
                       left: `calc(50% + ${x}px)`,
                       top: `calc(50% + ${y}px)`,
@@ -239,7 +259,7 @@ const FreelancerHero = () => {
                       style={{animationDuration: '40s', animationDirection: 'reverse'}}
                     >
                       {/* Profile Container */}
-                      <div className={`w-24 h-24 rounded-full bg-gradient-to-br ${freelancer.color} p-1 shadow-2xl transition-all duration-500 border-2 border-white`}>
+                      <div className={`w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br ${freelancer.color} p-[2px] lg:p-1 shadow-2xl transition-all duration-500 border lg:border-2 border-white`}>
                         <div className="w-full h-full rounded-full overflow-hidden">
                           <img 
                             src={freelancer.image} 
@@ -249,9 +269,9 @@ const FreelancerHero = () => {
                         </div>
                       </div>
                       
-                      {/* Automatic Tooltip - Always at 9 o'clock (left side) */}
+                      {/* Desktop Tooltip - Always at 9 o'clock (left side) */}
                       <div 
-                        className={`absolute right-full top-1/2 transform -translate-y-1/2 mr-2 transition-all duration-300 pointer-events-none ${
+                        className={`hidden lg:block absolute right-full top-1/2 transform -translate-y-1/2 mr-2 transition-all duration-300 pointer-events-none ${
                           showTooltip ? 'opacity-100 visible' : 'opacity-0 invisible'
                         }`}
                         style={{zIndex: 9999}}
@@ -273,6 +293,31 @@ const FreelancerHero = () => {
                         {/* Arrow pointing right to profile */}
                         <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-l-4 border-transparent border-l-white/95"></div>
                       </div>
+
+                      {/* Mobile Tooltip - At 12 o'clock (top) */}
+                      <div 
+                        className={`lg:hidden absolute left-1/2 bottom-full transform -translate-x-1/2 mb-2 transition-all duration-300 pointer-events-none ${
+                          showTooltip ? 'opacity-100 visible' : 'opacity-0 invisible'
+                        }`}
+                        style={{zIndex: 9999}}
+                      >
+                        <div className="bg-white/95 backdrop-blur-lg rounded-lg px-3 py-2 shadow-2xl border border-slate-200 whitespace-nowrap min-w-[140px] sm:min-w-[160px]">
+                          <div className="text-gray-800 font-bold text-xs sm:text-sm">{freelancer.name}</div>
+                          <div className="text-slate-600 text-[10px] sm:text-xs font-medium">{freelancer.designation}</div>
+                          <div className="flex items-center justify-between mt-1">
+                            <div className="flex items-center space-x-1">
+                              <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-yellow-500 fill-current" viewBox="0 0 20 20">
+                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                              </svg>
+                              <span className="text-[10px] sm:text-xs font-semibold text-gray-700">{freelancer.rating}</span>
+                            </div>
+                            <span className="text-[10px] sm:text-xs text-slate-500">{freelancer.projects} proj</span>
+                          </div>
+                          <div className="mt-1 text-[10px] sm:text-xs text-blue-600 font-medium">{freelancer.expertise}</div>
+                        </div>
+                        {/* Arrow pointing down to profile */}
+                        <div className="absolute left-1/2 top-full transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white/95"></div>
+                      </div>
                     </div>
                   </div>
                 );
@@ -286,7 +331,7 @@ const FreelancerHero = () => {
                 <circle
                   cx="250"
                   cy="250"
-                  r="190"
+                  r={isMobile ? "110" : "190"}
                   fill="none"
                   stroke="url(#professionalGradient)"
                   strokeWidth="1"
@@ -296,7 +341,7 @@ const FreelancerHero = () => {
                 <circle
                   cx="250"
                   cy="250"
-                  r="150"
+                  r={isMobile ? "85" : "150"}
                   fill="none"
                   stroke="url(#professionalGradient)"
                   strokeWidth="0.5"
@@ -314,7 +359,7 @@ const FreelancerHero = () => {
             </div>
 
             {/* Professional Glow Effect */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-xl animate-pulse"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 lg:w-40 lg:h-40 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-xl animate-pulse"></div>
           </div>
         </div>
       </div>

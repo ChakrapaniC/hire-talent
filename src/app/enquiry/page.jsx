@@ -187,7 +187,7 @@ const EnquiryFlow = () => {
         <EnquiryFlowWithSearchParams onServiceParamChange={handleServiceParamChange} />
       </Suspense>
       <Navbar currentStep={currentStep} showProgressBar={true} isSubmitted={isSubmitted} />
-      <div className="max-w-[54%] mx-auto px-1 py-4">
+      <div className="max-w-[90%] md:max-w-[54%] mx-auto px-1 py-4">
         {/* Back to Home Button */}
         {/* <div className="mb-6">
           <button
