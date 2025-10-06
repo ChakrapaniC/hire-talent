@@ -92,6 +92,11 @@ const EnquiryFlow = () => {
     };
   }, [formData.serviceType, formData.timeCommitment, currentStep]);
 
+  // Scroll to top when step changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStep]);
+
   const handleNext = () => {
     if (currentStep < 2) {
       setCurrentStep(currentStep + 1);

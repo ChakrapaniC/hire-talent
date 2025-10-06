@@ -74,7 +74,8 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
       'Brand Manager', 'Product Marketing Manager', 'Growth Marketing Manager', 'Performance Marketing Manager',
       'Marketing Analyst', 'Marketing Operations Manager', 'Influencer Marketing Manager', 'Affiliate Marketing Manager',
       'Marketing Technology Manager', 'Customer Acquisition Manager', 'Retention Marketing Manager', 'Marketing Director'
-    ]
+    ],
+    'Others': []
   };
 
   useEffect(() => {
@@ -190,7 +191,14 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
                                   ? 'bg-blue-100 text-blue-700 border-l-4 border-blue-600'
                                   : 'text-gray-700 hover:bg-gray-100'
                               }`}
-                              onClick={() => setActiveCategory(category)}
+                              onClick={() => {
+                                if (category === 'Others') {
+                                  setIsDropdownOpen(false);
+                                  router.push('/enquiry');
+                                } else {
+                                  setActiveCategory(category);
+                                }
+                              }}
                             >
                               {category}
                             </button>
@@ -204,20 +212,26 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
                           <h3 className="text-lg font-semibold text-gray-800">{activeCategory}</h3>
                         </div>
                         <div className="grid grid-cols-2 gap-2">
-                          {dropdownData[activeCategory]?.map((item, index) => (
-                            <button
-                              key={index}
-                              className="text-left px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-md transition-colors duration-200 cursor-pointer"
-                               onClick={() => {
-                                 // Navigate to enquiry step 2 with pre-selected service category
-                                 setIsDropdownOpen(false);
-                                 const serviceId = activeCategory.toLowerCase().replace(/\s+/g, '-');
-                                 router.push(`/enquiry?service=${serviceId}`);
-                               }}
-                            >
-                              {item}
-                            </button>
-                          ))}
+                          {dropdownData[activeCategory]?.length > 0 ? (
+                            dropdownData[activeCategory].map((item, index) => (
+                              <button
+                                key={index}
+                                className="text-left px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-md transition-colors duration-200 cursor-pointer"
+                                 onClick={() => {
+                                   // Navigate to enquiry step 2 with pre-selected service category
+                                   setIsDropdownOpen(false);
+                                   const serviceId = activeCategory.toLowerCase().replace(/\s+/g, '-');
+                                   router.push(`/enquiry?service=${serviceId}`);
+                                 }}
+                              >
+                                {item}
+                              </button>
+                            ))
+                          ) : (
+                            <div className="col-span-2 text-center py-8 text-gray-500">
+                              <p className="text-sm">Click on "Others" to proceed directly to enquiry</p>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -304,7 +318,15 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
                                 ? 'bg-blue-100 text-blue-700 border-l-2 border-blue-600'
                                 : 'text-gray-700 hover:bg-white hover:text-blue-600'
                             }`}
-                            onClick={() => setActiveCategory(category)}
+                            onClick={() => {
+                              if (category === 'Others') {
+                                setIsDropdownOpen(false);
+                                setIsMobileMenuOpen(false);
+                                router.push('/enquiry');
+                              } else {
+                                setActiveCategory(category);
+                              }
+                            }}
                           >
                             {category}
                           </button>
@@ -344,21 +366,27 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
                             background: #6B7280;
                           }
                         `}</style>
-                        {dropdownData[activeCategory]?.map((item, index) => (
-                          <button
-                            key={index}
-                            className="w-full text-left text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 py-2 px-2 rounded-md cursor-pointer"
-                            onClick={() => {
-                              // Navigate to enquiry step 2 with pre-selected service category
-                              setIsDropdownOpen(false);
-                              setIsMobileMenuOpen(false);
-                              const serviceId = activeCategory.toLowerCase().replace(/\s+/g, '-');
-                              router.push(`/enquiry?service=${serviceId}`);
-                            }}
-                          >
-                            {item}
-                          </button>
-                        ))}
+                        {dropdownData[activeCategory]?.length > 0 ? (
+                          dropdownData[activeCategory].map((item, index) => (
+                            <button
+                              key={index}
+                              className="w-full text-left text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 py-2 px-2 rounded-md cursor-pointer"
+                              onClick={() => {
+                                // Navigate to enquiry step 2 with pre-selected service category
+                                setIsDropdownOpen(false);
+                                setIsMobileMenuOpen(false);
+                                const serviceId = activeCategory.toLowerCase().replace(/\s+/g, '-');
+                                router.push(`/enquiry?service=${serviceId}`);
+                              }}
+                            >
+                              {item}
+                            </button>
+                          ))
+                        ) : (
+                          <div className="text-center py-4 text-gray-500">
+                            <p className="text-xs">Click on "Others" to proceed directly to enquiry</p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
