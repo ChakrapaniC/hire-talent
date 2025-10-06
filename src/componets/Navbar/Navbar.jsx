@@ -226,7 +226,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
                               onClick={() => {
                                 if (category === 'Others') {
                                   setIsDropdownOpen(false);
-                                  router.push('/enquiry');
+                                  router.push('/enquiry?service=others&step=1');
                                 } else {
                                   setActiveCategory(category);
                                 }
@@ -359,7 +359,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
                               if (category === 'Others') {
                                 setIsDropdownOpen(false);
                                 setIsMobileMenuOpen(false);
-                                router.push('/enquiry');
+                                router.push('/enquiry?service=others&step=1');
                               } else {
                                 setActiveCategory(category);
                               }

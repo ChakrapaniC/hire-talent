@@ -123,9 +123,12 @@ const Footer = () => {
             
             {/* Legal Links */}
             <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <span className="cursor-pointer hover:text-white transition-colors duration-200">
+              <button 
+                onClick={() => router.push('/privacy-policy')}
+                className="cursor-pointer hover:text-white transition-colors duration-200"
+              >
                 Privacy Policy
-              </span>
+              </button>
               <span className="cursor-pointer hover:text-white transition-colors duration-200">
                 Terms of Service
               </span>

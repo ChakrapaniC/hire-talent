@@ -12,8 +12,9 @@ const EnquiryFlowWithSearchParams = ({ onServiceParamChange }) => {
 
   useEffect(() => {
     const serviceParam = searchParams.get('service');
+    const stepParam = searchParams.get('step');
     if (serviceParam) {
-      onServiceParamChange(serviceParam);
+      onServiceParamChange(serviceParam, stepParam);
     }
   }, [searchParams, onServiceParamChange]);
 
@@ -40,13 +41,19 @@ const EnquiryFlow = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showSuccessScreen, setShowSuccessScreen] = useState(false);
 
-  const handleServiceParamChange = useCallback((serviceParam) => {
+  const handleServiceParamChange = useCallback((serviceParam, stepParam) => {
     setFormData(prev => ({
       ...prev,
       serviceType: serviceParam
     }));
     
-    setCurrentStep(1);
+    // If step parameter is provided and it's 1, go to step 2 (time commitment)
+    // Otherwise, go to step 1 (service selection)
+    if (stepParam === '1') {
+      setCurrentStep(1);
+    } else {
+      setCurrentStep(0);
+    }
   }, []);
 
   const updateFormData = (field, value) => {

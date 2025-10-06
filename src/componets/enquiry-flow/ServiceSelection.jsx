@@ -3,34 +3,24 @@ import { ChevronRight } from "lucide-react";
 const ServiceSelection = ({ formData, updateFormData }) => {
   const services = [
     {
-      id: "sap-consultants",
-      title: "SAP Consultants",
-      description: "SAP FICO, MM, SD, PP, S/4HANA, Fiori experts...",
-    },
-    {
-      id: "oracle-consultants",
-      title: "Oracle Consultants",
-      description: "Oracle EBS, Cloud, Fusion, Database, BI experts...",
-    },
-    {
-      id: "salesforce",
-      title: "Salesforce",
-      description: "Salesforce Admin, Developer, Architect, Marketing Cloud...",
-    },
-    {
       id: "erp-consultants",
-      title: "ERP Consultants",
+      title: "ERP Consultant",
       description: "Microsoft Dynamics, NetSuite, Workday, ServiceNow...",
     },
     {
-      id: "enterprise-architects",
-      title: "Enterprise Architects",
+      id: "solution-architects",
+      title: "Solution Architects",
       description: "Solution, Technical, Data, Security, Cloud Architects...",
     },
     {
-      id: "developers",
-      title: "Developers",
-      description: "Software Developer, Data Scientist, DevOps, QA...",
+      id: "cloud-consultant",
+      title: "Cloud Consultant",
+      description: "AWS, Azure, GCP, DevOps, Infrastructure experts...",
+    },
+    {
+      id: "software-developer",
+      title: "Software Developer",
+      description: "Full-stack, Front-end, Back-end, Mobile App Developer...",
     },
     {
       id: "designers",
@@ -38,13 +28,8 @@ const ServiceSelection = ({ formData, updateFormData }) => {
       description: "Web, Mobile, UI/UX, Branding, and Visual Designer...",
     },
     {
-      id: "management-consultants",
-      title: "Management Consultants",
-      description: "Finance Expert, Business Strategist, M&A Expert...",
-    },
-    {
-      id: "marketing-experts",
-      title: "Marketing Experts",
+      id: "marketing-consultants",
+      title: "Marketing Consultants",
       description: "Growth Marketing Expert, Content Marketing Strategist...",
     },
   ];
