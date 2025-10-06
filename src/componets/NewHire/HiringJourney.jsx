@@ -27,7 +27,7 @@ const HiringJourneyFlow = () => {
     {
       number: 4,
       title: "The Right Fit, Guaranteed",
-      description: "Work with your new team member on a trial basis (pay only if satisfied), ensuring you hire the right people for the job."
+      description: "Start working with your new team member. There will be no extra charges of replacement if not satisfied. "
     }
   ];
 
