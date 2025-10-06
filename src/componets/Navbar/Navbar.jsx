@@ -118,6 +118,34 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
     };
   }, [isMobileMenuOpen]);
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen) {
+        // Check if the click is outside the mobile menu
+        const mobileMenu = document.querySelector('[data-mobile-menu]');
+        const hamburgerButton = document.querySelector('[data-hamburger-button]');
+        
+        if (mobileMenu && 
+            !mobileMenu.contains(event.target) && 
+            hamburgerButton && 
+            !hamburgerButton.contains(event.target)) {
+          setIsMobileMenuOpen(false);
+        }
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
+
   const getProgressPercentage = () => {
     if (isSubmitted) {
       return 100;
@@ -276,6 +304,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
 
               {/* Mobile Menu Button */}
               <button 
+                data-hamburger-button
                 className="p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
@@ -299,7 +328,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed top-16 lg:top-20 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-xl md:hidden max-h-[calc(100vh-4rem)] overflow-y-auto">
+        <div data-mobile-menu className="fixed top-16 lg:top-20 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-xl md:hidden max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="px-6 py-4 space-y-4">
             {/* Hire Talent Mobile Section */}
             <div>
