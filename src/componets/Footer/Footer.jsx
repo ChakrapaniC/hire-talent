@@ -67,10 +67,10 @@ const Footer = () => {
         </div>
 
         {/* Divider Line */}
-        <div className="border-t border-gray-700 mb-8"></div>
+        <div className="border-t border-gray-700 mb-3"></div>
 
         {/* Logo and Navigation Section */}
-        <div className="flex flex-col lg:flex-row items-center justify-between mb-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between mb-3">
           {/* Logo and Motto Section */}
           <div className="flex items-center space-x-4 mb-6 lg:mb-0">
             {/* Logo */}
@@ -78,7 +78,7 @@ const Footer = () => {
               <img 
                 src="https://prolegion-assets.s3.ap-south-1.amazonaws.com/FLexpert+Logo.png" 
                 alt="Flexpert Logo" 
-                className="h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
+                className="h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
               />
             </div>
             
@@ -87,7 +87,7 @@ const Footer = () => {
             
             {/* Motto */}
             <div>
-              <p className="text-base font-medium text-gray-300">
+              <p className="text-xs md:text-base font-medium text-gray-300">
                 Expertise, whenever you need it
               </p>
             </div>
