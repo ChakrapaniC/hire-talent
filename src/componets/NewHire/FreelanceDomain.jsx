@@ -1,72 +1,72 @@
 "use client";
 import React from 'react';
-import { Palette, Code, PenTool, Type, Briefcase, Megaphone, BarChart3 } from "lucide-react";
+import { Database, Server, Cloud, Building2, Users, Settings, Layers, Brain } from "lucide-react";
 
 const FreelancerDomains = () => {
     const domains = [
         {
             id: 1,
-            title: "Web Design",
-            description: "Crafts engaging, user-friendly websites.",
+            title: "SAP",
+            description: "Enterprise resource planning and business process optimization.",
             bgColor: "bg-blue-100",
-            icon: <Palette className="w-8 h-8" />,
-            services: ["Landing Page", "Portfolio", "Business Website", "E-commerce"]
+            icon: <Database className="w-8 h-8" />,
+            services: ["SAP HANA", "SAP FICO", "SAP MM", "SAP SD"]
         },
         {
             id: 2,
-            title: "Graphic Design",
-            description: "Creates impactful visuals and branding.",
+            title: "Oracle",
+            description: "Database management and enterprise applications expertise.",
             bgColor: "bg-blue-100",
-            icon: <PenTool className="w-8 h-8" />,
-            services: ["Packaging", "Brand Identity", "Illustrations", "Logo"]
+            icon: <Server className="w-8 h-8" />,
+            services: ["Oracle DB", "Oracle Cloud", "Oracle ERP", "Oracle Analytics"]
         },
         {
             id: 3,
-            title: "Developers",
-            description: "Builds functional and scalable solutions.",
+            title: "Salesforce",
+            description: "Customer relationship management and cloud solutions.",
             bgColor: "bg-blue-100",
-            icon: <Code className="w-8 h-8" />,
-            services: ["Web Apps", "Mobile Apps", "APIs", "Database"]
+            icon: <Cloud className="w-8 h-8" />,
+            services: ["Sales Cloud", "Service Cloud", "Marketing Cloud", "Lightning"]
         },
         {
             id: 4,
-            title: "Copywriting",
-            description: "Delivers persuasive and creative content.",
+            title: "Microsoft Dynamics 365",
+            description: "Integrated business applications and intelligent insights.",
             bgColor: "bg-blue-100",
-            icon: <Type className="w-8 h-8" />,
-            services: ["Blog Posts", "Ad Copies", "Sales Pages", "Slogans"]
+            icon: <Building2 className="w-8 h-8" />,
+            services: ["Dynamics CRM", "Dynamics ERP", "Power Platform", "Azure Integration"]
         },
         {
             id: 5,
-            title: "Business Consulting",
-            description: "Helps optimize strategy and operations.",
+            title: "Workday",
+            description: "Human capital management and financial management solutions.",
             bgColor: "bg-blue-100",
-            icon: <Briefcase className="w-8 h-8" />,
-            services: ["Strategy", "Market Research", "Finance", "Operations"]
+            icon: <Users className="w-8 h-8" />,
+            services: ["HCM", "Financial Management", "Planning", "Analytics"]
         },
         {
             id: 6,
-            title: "Digital Marketing",
-            description: "Drives growth through online campaigns.",
+            title: "Solution Architecture",
+            description: "Designs comprehensive technology solutions for complex business needs.",
             bgColor: "bg-blue-100",
-            icon: <Megaphone className="w-8 h-8" />,
-            services: ["SEO", "Social Media", "Email Marketing", "PPC Ads"]
+            icon: <Settings className="w-8 h-8" />,
+            services: ["System Design", "Integration", "Scalability", "Security"]
         },
         {
             id: 7,
-            title: "Data Analytics",
-            description: "Transforms data into actionable insights for business growth.",
+            title: "Cloud Architecture",
+            description: "Designs and implements scalable cloud infrastructure solutions.",
             bgColor: "bg-blue-100",
-            icon: <BarChart3 className="w-8 h-8" />,
-            services: ["Data Visualization", "Business Intelligence", "Statistical Analysis", "Reporting"]
+            icon: <Layers className="w-8 h-8" />,
+            services: ["AWS", "Azure", "GCP", "DevOps"]
         },
         {
             id: 8,
-            title: "Project Management",
-            description: "Delivers projects on time and within budget with expert planning.",
+            title: "AI & Machine Learning",
+            description: "Develops intelligent solutions and predictive analytics for business automation.",
             bgColor: "bg-blue-100",
-            icon: <Briefcase className="w-8 h-8" />,
-            services: ["Agile", "Scrum", "Timeline Planning", "Resource Management"]
+            icon: <Brain className="w-8 h-8" />,
+            services: ["Deep Learning", "NLP", "Computer Vision", "Predictive Analytics"]
         },
         {
             id: 9,
