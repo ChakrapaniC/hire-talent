@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, ChevronDown, Menu, X } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,6 +10,10 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
   const router = useRouter();
+  const pathname = usePathname();
+  
+  // Check if we're on the enquiry page
+  const isOnEnquiryPage = pathname.includes('/enquiry');
 
   const dropdownData = {
     'SAP Consultants': [
@@ -260,13 +264,15 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
             {/* Mobile Layout - Hire Talent Button + Hamburger Menu */}
             <div className="flex items-center space-x-2 md:hidden">
               {/* Enquiry Button - Mobile */}
-              <button onClick={()=> router.push('/enquiry')} className="group relative overflow-hidden px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                <span className="relative z-10 flex items-center space-x-1.5">
-                  <MessageCircle className="w-3.5 h-3.5" />
-                  <span>Hire Talent</span>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
+              {!isOnEnquiryPage && (
+                <button onClick={()=> router.push('/enquiry')} className="group relative overflow-hidden px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                  <span className="relative z-10 flex items-center space-x-1.5">
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    <span>Hire Talent</span>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+              )}
 
               {/* Mobile Menu Button */}
               <button 
@@ -278,13 +284,15 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
             </div>
 
             {/* Desktop Enquiry Button */}
-            <button onClick={()=> router.push('/enquiry')} className="hidden md:block group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
-              <span className="relative z-10 flex items-center space-x-2">
-                <MessageCircle className="w-4 h-4" />
-                <span>Hire Talent</span>
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+            {!isOnEnquiryPage && (
+              <button onClick={()=> router.push('/enquiry')} className="hidden md:block group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                <span className="relative z-10 flex items-center space-x-2">
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Hire Talent</span>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+            )}
           </div>
         </div>
       </nav>
