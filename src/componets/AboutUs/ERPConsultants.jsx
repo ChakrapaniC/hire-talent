@@ -18,8 +18,8 @@ const ERPConsultants = () => {
       title: "ERP Implementation",
       description: "End-to-end ERP system deployment with seamless integration and training",
       icon: <Building2 className="w-8 h-8" />,
-      color: "from-indigo-500 to-blue-500",
-      bgColor: "bg-indigo-50",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
       features: ["System Analysis", "Custom Configuration", "Data Migration", "User Training", "Go-Live Support"],
     },
     {
@@ -27,8 +27,8 @@ const ERPConsultants = () => {
       title: "Business Process Optimization",
       description: "Streamline operations and improve efficiency through process redesign",
       icon: <BarChart3 className="w-8 h-8" />,
-      color: "from-indigo-500 to-blue-500",
-      bgColor: "bg-indigo-50",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
       features: ["Process Mapping", "Gap Analysis", "Workflow Design", "KPI Development", "Change Management"],
     },
     {
@@ -36,8 +36,8 @@ const ERPConsultants = () => {
       title: "Digital Transformation",
       description: "Modernize business operations with cutting-edge technology solutions",
       icon: <Zap className="w-8 h-8" />,
-      color: "from-indigo-500 to-blue-500",
-      bgColor: "bg-indigo-50",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
       features: ["Cloud Migration", "Automation", "Integration", "Analytics", "Mobile Solutions"],
     }
   ];
@@ -78,20 +78,20 @@ const ERPConsultants = () => {
 
 
   return (
-    <div className="py-20 px-6 lg:px-0 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 relative overflow-hidden">
+    <div className="py-20 px-6 lg:px-0 bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-50 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-100 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-cyan-100 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
         
         {/* Floating Business Elements */}
-        <div className="absolute top-20 right-10 text-indigo-200 opacity-30 animate-bounce">
+        <div className="absolute top-20 right-10 text-blue-200 opacity-30 animate-bounce">
           <Building2 className="w-6 h-6" />
         </div>
-        <div className="absolute top-40 left-20 text-blue-200 opacity-30 animate-bounce" style={{ animationDelay: '0.5s' }}>
+        <div className="absolute top-40 left-20 text-cyan-200 opacity-30 animate-bounce" style={{ animationDelay: '0.5s' }}>
           <BarChart3 className="w-5 h-5" />
         </div>
-        <div className="absolute bottom-20 left-1/4 text-cyan-200 opacity-30 animate-bounce" style={{ animationDelay: '1s' }}>
+        <div className="absolute bottom-20 left-1/4 text-blue-200 opacity-30 animate-bounce" style={{ animationDelay: '1s' }}>
           <Settings className="w-4 h-4" />
         </div>
       </div>
@@ -99,12 +99,12 @@ const ERPConsultants = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-100 to-blue-100 rounded-full mb-6">
-            <Building2 className="w-4 h-4 text-indigo-600" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-full mb-6">
+            <Building2 className="w-4 h-4 text-blue-600" />
             <span className="text-sm font-semibold text-gray-700">Enterprise Solutions</span>
           </div>
           <h2 className="text-2xl md:text-5xl font-bold text-gray-800 mb-4">
-            Expert <span className="bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">ERP Consultants</span>
+            Expert <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">ERP Consultants</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Transform your business operations with experienced ERP consultants who deliver enterprise-grade solutions, streamline processes, and drive digital transformation
@@ -117,7 +117,7 @@ const ERPConsultants = () => {
           {erpServices.map((service, index) => (
             <div
               key={service.id}
-              className={`${service.bgColor} rounded-3xl p-8 border-2 transition-all duration-700 border-indigo-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`${service.bgColor} rounded-3xl p-8 border-2 transition-all duration-700 border-blue-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {/* Header */}
@@ -142,7 +142,7 @@ const ERPConsultants = () => {
                 <div className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <CheckCircle className="w-3 h-3 mr-2 flex-shrink-0 text-indigo-500" />
+                      <CheckCircle className="w-3 h-3 mr-2 flex-shrink-0 text-blue-500" />
                       {feature}
                     </div>
                   ))}
@@ -157,7 +157,7 @@ const ERPConsultants = () => {
         <div className="mb-16">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Industries <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">We Serve</span>
+              Industries <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">We Serve</span>
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Specialized expertise across diverse industries with tailored ERP solutions
@@ -194,7 +194,7 @@ const ERPConsultants = () => {
             <div className="flex justify-center">
               <button 
                 onClick={() => router.push('/enquiry?service=erp-consultants')}
-                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-xl shadow-lg cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl shadow-lg cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 Hire ERP Consultants
               </button>

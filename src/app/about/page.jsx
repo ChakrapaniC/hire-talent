@@ -253,8 +253,8 @@ const AboutUs = () => {
                 onClick={() => handleTabClick(1)}
                 className={`pb-3 px-1 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer whitespace-nowrap ${
                   activeTab === 1
-                    ? 'text-pink-600 border-pink-600'
-                    : 'text-gray-600 border-transparent hover:text-pink-500'
+                    ? 'text-blue-600 border-blue-600'
+                    : 'text-gray-600 border-transparent hover:text-blue-500'
                 }`}
               >
                 <span className="hidden sm:inline">Oracle Consultants</span>
@@ -264,8 +264,8 @@ const AboutUs = () => {
                 onClick={() => handleTabClick(2)}
                 className={`pb-3 px-1 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer whitespace-nowrap ${
                   activeTab === 2
-                    ? 'text-purple-600 border-purple-600'
-                    : 'text-gray-600 border-transparent hover:text-purple-500'
+                    ? 'text-blue-600 border-blue-600'
+                    : 'text-gray-600 border-transparent hover:text-blue-500'
                 }`}
               >
                 Salesforce
@@ -274,8 +274,8 @@ const AboutUs = () => {
                 onClick={() => handleTabClick(3)}
                 className={`pb-3 px-1 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer whitespace-nowrap ${
                   activeTab === 3
-                    ? 'text-indigo-600 border-indigo-600'
-                    : 'text-gray-600 border-transparent hover:text-indigo-500'
+                    ? 'text-blue-600 border-blue-600'
+                    : 'text-gray-600 border-transparent hover:text-blue-500'
                 }`}
               >
                 <span className="hidden sm:inline">ERP Consultants</span>

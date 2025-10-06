@@ -17,8 +17,8 @@ const Salesforce = () => {
       title: "Salesforce Implementation",
       description: "Complete Salesforce setup and configuration for your business needs",
       icon: <Globe className="w-8 h-8" />,
-      color: "from-purple-500 to-violet-500",
-      bgColor: "bg-purple-50",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
       strategies: ["Sales Cloud", "Service Cloud", "Marketing Cloud", "Custom Apps"],
     },
     {
@@ -26,8 +26,8 @@ const Salesforce = () => {
       title: "Salesforce Development",
       description: "Custom development and integration solutions on Salesforce platform",
       icon: <TrendingUp className="w-8 h-8" />,
-      color: "from-purple-500 to-violet-500",
-      bgColor: "bg-purple-50",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
       strategies: ["Apex Development", "Lightning Components", "Visualforce", "API Integration"],
     },
     {
@@ -35,8 +35,8 @@ const Salesforce = () => {
       title: "Salesforce Analytics",
       description: "Business intelligence and reporting solutions with Einstein Analytics",
       icon: <Target className="w-8 h-8" />,
-      color: "from-purple-500 to-violet-500",
-      bgColor: "bg-purple-50",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
       strategies: ["Einstein Analytics", "Reports & Dashboards", "Data Visualization", "Predictive Analytics"],
     },
     {
@@ -44,8 +44,8 @@ const Salesforce = () => {
       title: "Salesforce Consulting",
       description: "Strategic guidance and best practices for Salesforce optimization",
       icon: <BarChart3 className="w-8 h-8" />,
-      color: "from-purple-500 to-violet-500",
-      bgColor: "bg-purple-50",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
       strategies: ["Process Optimization", "User Training", "Governance", "Best Practices"],
     }
   ];
@@ -53,20 +53,20 @@ const Salesforce = () => {
 
 
   return (
-    <div className="py-20 px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-indigo-50 to-violet-50 relative overflow-hidden">
+    <div className="py-20 px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-50 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-violet-100 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-100 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
         
         {/* Floating Marketing Elements */}
-        <div className="absolute top-20 left-10 text-purple-200 opacity-30 animate-bounce">
+        <div className="absolute top-20 left-10 text-blue-200 opacity-30 animate-bounce">
           <Target className="w-5 h-5" />
         </div>
-        <div className="absolute top-40 right-20 text-violet-200 opacity-30 animate-bounce" style={{ animationDelay: '0.5s' }}>
+        <div className="absolute top-40 right-20 text-cyan-200 opacity-30 animate-bounce" style={{ animationDelay: '0.5s' }}>
           <BarChart3 className="w-4 h-4" />
         </div>
-        <div className="absolute bottom-20 right-1/4 text-indigo-200 opacity-30 animate-bounce" style={{ animationDelay: '1s' }}>
+        <div className="absolute bottom-20 right-1/4 text-blue-200 opacity-30 animate-bounce" style={{ animationDelay: '1s' }}>
           <TrendingUp className="w-6 h-6" />
         </div>
       </div>
@@ -74,12 +74,12 @@ const Salesforce = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-violet-100 rounded-full mb-6">
-            <Megaphone className="w-4 h-4 text-purple-600" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-full mb-6">
+            <Megaphone className="w-4 h-4 text-blue-600" />
             <span className="text-sm font-semibold text-gray-700">Salesforce Excellence</span>
           </div>
           <h2 className="text-2xl md:text-5xl font-bold text-gray-800 mb-4">
-            Expert <span className="bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 bg-clip-text text-transparent">Salesforce Professionals</span>
+            Expert <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">Salesforce Professionals</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Accelerate your business growth with certified Salesforce experts who deliver custom solutions, seamless integrations, and measurable results
@@ -92,7 +92,7 @@ const Salesforce = () => {
           {salesforceServices.map((service, index) => (
             <div
               key={service.id}
-              className={`${service.bgColor} rounded-3xl p-8 border-2 transition-all duration-700 border-purple-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`${service.bgColor} rounded-3xl p-8 border-2 transition-all duration-700 border-blue-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {/* Header */}
@@ -122,7 +122,7 @@ const Salesforce = () => {
                   {service.strategies.map((strategy, strategyIndex) => (
                     <span
                       key={strategyIndex}
-                      className="px-3 py-1 text-white text-xs font-medium rounded-full bg-gradient-to-r from-purple-500 to-violet-500"
+                      className="px-3 py-1 text-white text-xs font-medium rounded-full bg-gradient-to-r from-blue-500 to-cyan-500"
                     >
                       {strategy}
                     </span>
@@ -139,7 +139,7 @@ const Salesforce = () => {
         <div className="mb-16">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Salesforce <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Solutions & Tools</span>
+              Salesforce <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Solutions & Tools</span>
             </h3>
           </div>
 
@@ -156,7 +156,7 @@ const Salesforce = () => {
                 key={index}
                 className="bg-white/70 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
-                <div className="text-purple-600 mb-2 flex justify-center">
+                <div className="text-blue-600 mb-2 flex justify-center">
                   {tool.icon}
                 </div>
                 <div className="text-sm font-medium text-gray-700">
@@ -179,7 +179,7 @@ const Salesforce = () => {
             <div className="flex justify-center">
               <button 
                 onClick={() => router.push('/enquiry?service=salesforce')}
-                className="px-8 py-3 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold rounded-xl shadow-lg cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl shadow-lg cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 Hire Salesforce Experts
               </button>
