@@ -99,6 +99,20 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
     };
   }, [dropdownTimeout]);
 
+  // Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const getProgressPercentage = () => {
     if (isSubmitted) {
       return 100;
@@ -121,7 +135,7 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
           ? 'bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-black/5' 
           : 'bg-transparent'
       }`}>
-        <div className="w-full max-w-[90%] mx-auto px-6 lg:px-8">
+        <div className="w-full max-w-[100%] md:max-w-[90%] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             
             {/* Logo and Navigation Group */}
@@ -229,16 +243,28 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            {/* Mobile Layout - Hire Talent Button + Hamburger Menu */}
+            <div className="flex items-center space-x-2 md:hidden">
+              {/* Enquiry Button - Mobile */}
+              <button onClick={()=> router.push('/enquiry')} className="group relative overflow-hidden px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                <span className="relative z-10 flex items-center space-x-1.5">
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>Hire Talent</span>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
 
-            {/* Enquiry Button */}
-            <button onClick={()=> router.push('/enquiry')} className="group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
+              {/* Mobile Menu Button */}
+              <button 
+                className="p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+
+            {/* Desktop Enquiry Button */}
+            <button onClick={()=> router.push('/enquiry')} className="hidden md:block group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 cursor-pointer">
               <span className="relative z-10 flex items-center space-x-2">
                 <MessageCircle className="w-4 h-4" />
                 <span>Hire Talent</span>
@@ -251,58 +277,113 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed top-16 lg:top-20 left-0 right-0 z-40 bg-white border-b border-gray-200 shadow-lg md:hidden">
+        <div className="fixed top-16 lg:top-20 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-xl md:hidden max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="px-6 py-4 space-y-4">
             {/* Hire Talent Mobile Section */}
             <div>
               <button 
-                className="flex items-center justify-between w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold py-2 cursor-pointer"
+                className="flex items-center justify-between w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold py-3 px-2 rounded-lg hover:bg-gray-50 cursor-pointer"
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               >
                 <span>Hire Talent</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {isDropdownOpen && (
-                <div className="mt-2 ml-4 space-y-2">
-                  {Object.keys(dropdownData).map((category) => (
-                    <div key={category} className="space-y-1">
-                      <button
-                        className="text-left text-sm font-bold text-gray-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
-                        onClick={() => setActiveCategory(category)}
-                      >
-                        {category}
-                      </button>
-                      {activeCategory === category && (
-                        <div className="ml-4 grid grid-cols-1 gap-1">
-                          {dropdownData[category]?.slice(0, 10).map((item, index) => (
-                            <button
-                              key={index}
-                              className="text-left text-xs text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 cursor-pointer"
-                            >
-                              {item}
-                            </button>
-                          ))}
-                        </div>
-                      )}
+                <div className="mt-3 bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                  <div className="flex h-80">
+                    {/* Left Panel - Categories */}
+                    <div className="w-1/3 bg-gray-100 p-3 flex flex-col">
+                      <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Categories</div>
+                      <div className="flex-1 space-y-1 overflow-y-auto">
+                        {Object.keys(dropdownData).map((category) => (
+                          <button
+                            key={category}
+                            className={`w-full text-left px-2 py-2 rounded-md text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                              activeCategory === category
+                                ? 'bg-blue-100 text-blue-700 border-l-2 border-blue-600'
+                                : 'text-gray-700 hover:bg-white hover:text-blue-600'
+                            }`}
+                            onClick={() => setActiveCategory(category)}
+                          >
+                            {category}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  ))}
+                    
+                    {/* Right Panel - Job Names */}
+                    <div className="w-2/3 p-3 flex flex-col">
+                      <div className="mb-2">
+                        <h3 className="text-sm font-semibold text-gray-800">{activeCategory}</h3>
+                        <div className="text-xs text-gray-500">Available Roles</div>
+                      </div>
+                      <div 
+                        className="flex-1 overflow-y-auto space-y-1 pr-2"
+                        style={{
+                          scrollbarWidth: 'thin',
+                          scrollbarColor: '#9CA3AF #F3F4F6'
+                        }}
+                        onTouchStart={(e) => e.stopPropagation()}
+                        onTouchMove={(e) => e.stopPropagation()}
+                        onWheel={(e) => e.stopPropagation()}
+                      >
+                        <style jsx>{`
+                          div::-webkit-scrollbar {
+                            width: 6px;
+                          }
+                          div::-webkit-scrollbar-track {
+                            background: #F3F4F6;
+                            border-radius: 3px;
+                          }
+                          div::-webkit-scrollbar-thumb {
+                            background: #9CA3AF;
+                            border-radius: 3px;
+                          }
+                          div::-webkit-scrollbar-thumb:hover {
+                            background: #6B7280;
+                          }
+                        `}</style>
+                        {dropdownData[activeCategory]?.map((item, index) => (
+                          <button
+                            key={index}
+                            className="w-full text-left text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 py-2 px-2 rounded-md cursor-pointer"
+                            onClick={() => {
+                              // Navigate to enquiry step 2 with pre-selected service category
+                              setIsDropdownOpen(false);
+                              setIsMobileMenuOpen(false);
+                              const serviceId = activeCategory.toLowerCase().replace(/\s+/g, '-');
+                              router.push(`/enquiry?service=${serviceId}`);
+                            }}
+                          >
+                            {item}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
 
             {/* Contact Us */}
             <button 
-              onClick={() => router.push('/contact')}
-              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold py-2 cursor-pointer"
+              onClick={() => {
+                router.push('/contact');
+                setIsMobileMenuOpen(false);
+              }}
+              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold py-3 px-2 rounded-lg hover:bg-gray-50 cursor-pointer"
             >
               Contact Us
             </button>
 
             {/* About Us */}
             <button 
-              onClick={() => router.push('/about')}
-              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold py-2 cursor-pointer"
+              onClick={() => {
+                router.push('/about');
+                setIsMobileMenuOpen(false);
+              }}
+              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-bold py-3 px-2 rounded-lg hover:bg-gray-50 cursor-pointer"
             >
               About Us
             </button>

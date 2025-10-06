@@ -32,6 +32,11 @@ const Footer = () => {
     ]
   };
 
+  // Map categories to service parameters (same as navbar)
+  const getServiceId = (category) => {
+    return category.toLowerCase().replace(/\s+/g, '-');
+  };
+
   return (
     <footer className="bg-gradient-to-b from-gray-900 to-black text-white">
       <div className="w-full max-w-[90%] mx-auto px-6 lg:px-8 py-16">
@@ -46,8 +51,13 @@ const Footer = () => {
                 </h4>
                 <ul className="space-y-1">
                   {jobs.slice(0, 4).map((job, index) => (
-                    <li key={index} className="text-sm text-gray-400">
-                      {job}
+                    <li key={index}>
+                      <button
+                        onClick={() => router.push(`/enquiry?service=${getServiceId(category)}`)}
+                        className="text-sm text-gray-400 hover:text-blue-400 hover:underline transition-all duration-200 cursor-pointer text-left"
+                      >
+                        {job}
+                      </button>
                     </li>
                   ))}
                 </ul>

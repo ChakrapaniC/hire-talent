@@ -225,42 +225,44 @@ const AboutUs = () => {
       }`}>
         <div className={`transition-all duration-75 ease-out ${
           isScrolled 
-            ? 'w-full px-6 pt-4' 
-            : 'max-w-7xl mx-auto px-6'
+            ? 'w-full px-3 sm:px-6 pt-4' 
+            : 'max-w-7xl mx-auto px-3 sm:px-6'
         }`}>
             <div className={`transition-all duration-75 ease-out ${
               isScrolled 
-                ? 'flex justify-center space-x-8' 
+                ? 'flex justify-center space-x-2 sm:space-x-4 lg:space-x-8' 
                 : 'bg-white border border-gray-200 rounded-lg shadow-lg'
             }`}>
             <div className={`transition-all duration-75 ease-out ${
               isScrolled 
-                ? 'flex justify-center space-x-8' 
-                : 'flex justify-center space-x-8 pt-4'
+                ? 'flex justify-center space-x-2 sm:space-x-4 lg:space-x-8' 
+                : 'flex justify-center space-x-2 sm:space-x-4 lg:space-x-8 pt-4'
             }`}>
               <button
                 onClick={() => handleTabClick(0)}
-                className={`pb-3 px-1 text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer ${
+                className={`pb-3 px-1 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer whitespace-nowrap ${
                   activeTab === 0
                     ? 'text-blue-600 border-blue-600'
                     : 'text-gray-600 border-transparent hover:text-blue-500'
                 }`}
               >
-                SAP Consultants
+                <span className="hidden sm:inline">SAP Consultants</span>
+                <span className="sm:hidden">SAP</span>
               </button>
               <button
                 onClick={() => handleTabClick(1)}
-                className={`pb-3 px-1 text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer ${
+                className={`pb-3 px-1 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer whitespace-nowrap ${
                   activeTab === 1
                     ? 'text-pink-600 border-pink-600'
                     : 'text-gray-600 border-transparent hover:text-pink-500'
                 }`}
               >
-                Oracle Consultants
+                <span className="hidden sm:inline">Oracle Consultants</span>
+                <span className="sm:hidden">Oracle</span>
               </button>
               <button
                 onClick={() => handleTabClick(2)}
-                className={`pb-3 px-1 text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer ${
+                className={`pb-3 px-1 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer whitespace-nowrap ${
                   activeTab === 2
                     ? 'text-purple-600 border-purple-600'
                     : 'text-gray-600 border-transparent hover:text-purple-500'
@@ -270,13 +272,14 @@ const AboutUs = () => {
               </button>
               <button
                 onClick={() => handleTabClick(3)}
-                className={`pb-3 px-1 text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer ${
+                className={`pb-3 px-1 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 border-b-4 cursor-pointer whitespace-nowrap ${
                   activeTab === 3
                     ? 'text-indigo-600 border-indigo-600'
                     : 'text-gray-600 border-transparent hover:text-indigo-500'
                 }`}
               >
-                ERP Consultants
+                <span className="hidden sm:inline">ERP Consultants</span>
+                <span className="sm:hidden">ERP</span>
               </button>
             </div>
           </div>

@@ -38,6 +38,7 @@ const EnquiryFlow = () => {
     countryCode: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showSuccessScreen, setShowSuccessScreen] = useState(false);
 
   const handleServiceParamChange = useCallback((serviceParam) => {
     setFormData(prev => ({
@@ -126,17 +127,9 @@ const EnquiryFlow = () => {
 
       if (response.ok) {
         setIsSubmitted(true);
-        // Show 100% progress bar for a moment before redirecting
+        // Show success screen instead of direct navigation
         setTimeout(() => {
-          setFormData({
-            serviceType: '',
-            timeCommitment: '',
-            email: '',
-            companyName: '',
-            contactName: '',
-            phoneNumber: ''
-          });
-          router.push('/');
+          setShowSuccessScreen(true);
         }, 1000);
       } else {
         alert('Error submitting enquiry. Please try again.', formData);
@@ -180,6 +173,56 @@ const EnquiryFlow = () => {
       component: <ContactDetails formData={formData} updateFormData={updateFormData} />
     }
   ];
+
+  // Success Screen Component
+  const SuccessScreen = () => (
+    <div className="min-h-screen bg-blue-25 flex items-center justify-center">
+      <div className="max-w-md mx-auto px-6 py-8 text-center">
+        <div className="bg-white rounded-2xl shadow-xl p-8 animate-in fade-in-0 slide-in-from-bottom-4 duration-500">
+          {/* Success Icon */}
+          <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+            <CheckCircle className="w-8 h-8 text-green-600" />
+          </div>
+          
+          {/* Success Message */}
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            Inquiry Submitted Successfully!
+          </h2>
+          <p className="text-gray-600 mb-8">
+            Thank you for your interest. Our team will get back to you within 24 hours to discuss your requirements.
+          </p>
+          
+          {/* Back to Home Button */}
+          <button
+            onClick={() => {
+              setFormData({
+                serviceType: '',
+                timeCommitment: '',
+                email: '',
+                companyName: '',
+                contactName: '',
+                phoneNumber: '',
+                timezone: '',
+                countryCode: ''
+              });
+              setCurrentStep(0);
+              setIsSubmitted(false);
+              setShowSuccessScreen(false);
+              router.push('/');
+            }}
+            className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-300 cursor-pointer"
+          >
+            Back to Home
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Show success screen if form is submitted successfully
+  if (showSuccessScreen) {
+    return <SuccessScreen />;
+  }
 
   return (
     <div className="min-h-screen bg-blue-25 pt-20">
