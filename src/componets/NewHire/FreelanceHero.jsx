@@ -174,7 +174,7 @@ const FreelancerHero = () => {
               </h1>
               
               <p className="text-base lg:text-[1.3rem] text-slate-600 leading-relaxed max-w-xl font-light mx-auto lg:mx-0">
-                Access a pool of pre-vetted developers, designers, project managers, marketers, and finance experts, ready to jump in when you need them. Whether hourly, monthly, or project-based
+              Empower your projects with top-tier ERP and architecture experts — available instantly on an hourly, monthly, or project basis.
               </p>
             </div>
 
@@ -207,7 +207,7 @@ const FreelancerHero = () => {
             <div className="flex items-center justify-center lg:justify-start space-x-4 pt-2">
               <button onClick={() => router.push('/enquiry')} className="group px-6 lg:px-10 py-3 lg:py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer text-sm lg:text-base">
                 <span className="flex items-center space-x-2">
-                  <span>Find Elite Talent</span>
+                  <span>Hire Talent</span>
                   <svg className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

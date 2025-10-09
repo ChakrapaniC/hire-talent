@@ -176,9 +176,9 @@ const Navbar = ({ currentStep = 0, showProgressBar = false, isSubmitted = false 
               {/* Logo */}
               <div className="flex items-center cursor-pointer" onClick={() => router.push('/')}>
                 <img 
-                  src="https://prolegion-assets.s3.ap-south-1.amazonaws.com/FLexpert+Logo.png" 
+                  src="https://prolegion-assets.s3.ap-south-1.amazonaws.com/logo+file+(2).png" 
                   alt="Logo" 
-                  className="h-12 md:h-[70px] w-auto object-contain transition-all duration-300 hover:scale-105"
+                  className="h-12 md:h-[60px] w-auto object-contain transition-all duration-300 hover:scale-105"
                 />
               </div>
 
