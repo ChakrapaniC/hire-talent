@@ -2,6 +2,7 @@ import FreelancerDomains from "@/componets/NewHire/FreelanceDomain";
 import FreelancerHero from "@/componets/NewHire/FreelanceHero";
 import HiringJourneyFlow from "@/componets/NewHire/HiringJourney";
 import OurPartners from "@/componets/OurPartners/OurPartners";
+import Testimonials from "@/componets/Testimonials/Testimonials";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
     <FreelancerDomains/>
     <HiringJourneyFlow/>
     <OurPartners isHomepage={true}/>
+    <Testimonials/>
     </>
   );
 }
